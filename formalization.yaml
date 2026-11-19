@@ -34,7 +34,7 @@ project:
   # Proposed: the author line remains the author's decision.
   authors:
     - "Igor Kortchemski"
-  license: "AUTHOR-DECISION: SPDX license identifier, with a matching root LICENSE file"
+  license: "Apache-2.0"
   responsible_maintainers:
     - "Igor Kortchemski"
 

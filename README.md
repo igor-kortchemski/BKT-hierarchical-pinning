@@ -116,8 +116,8 @@ of the Lean statements or proofs.
 
 ## License and citation
 
-License: `AUTHOR-DECISION: license (add a LICENSE file)`. It covers the Lean
-code and documentation, not the paper. Maintainer: Igor Kortchemski. Cite the
+License: [Apache-2.0](LICENSE). It covers the Lean code and documentation, not
+the paper. Maintainer: Igor Kortchemski. Cite the
 paper for the mathematics and this repository for the formalization; citation
 metadata is in [`CITATION.cff`](CITATION.cff). Questions and corrections are
 welcome as issues.
