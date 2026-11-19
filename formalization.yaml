@@ -30,7 +30,6 @@ project:
     as standalone declarations.
   # The Lean proofs were produced by AI models (see automation); the paper's
   # author is the person responsible for this formalization.
-  # Proposed: the author line remains the author's decision.
   authors:
     - "Igor Kortchemski"
   license: "Apache-2.0"
