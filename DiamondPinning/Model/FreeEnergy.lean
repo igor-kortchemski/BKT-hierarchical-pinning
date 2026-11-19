@@ -327,7 +327,8 @@ theorem logSeq_difference_tendsto {μ : Measure ℝ} {B h : ℝ} (hB : 2 < B) :
   simpa using hprod
 
 /-- The normalized logarithmic moments converge to `freeEnergy`; this proves
-the convergence underlying the frozen `freeEnergy_tendsto`. -/
+the convergence underlying `DiamondPinning.freeEnergy_tendsto` (in
+`DiamondPinning.Statements.Main`). -/
 theorem freeEnergy_tendsto_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ) :
     Tendsto (fun n : ℕ => ((2 : ℝ) ^ n)⁻¹ * logMoment μ B h n) atTop
@@ -388,7 +389,7 @@ theorem freeEnergy_tendsto_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact htarget
 
 /-- The normalized expectations of `Real.log` under `lawR` converge to
-`freeEnergy`, proving the frozen `freeEnergy_tendsto`. -/
+`freeEnergy`, proving `DiamondPinning.freeEnergy_tendsto` (in `DiamondPinning.Statements.Main`). -/
 theorem freeEnergy_tendsto_statement_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ) :
     Tendsto (fun n : ℕ => ((2 : ℝ) ^ n)⁻¹ * ∫ x, Real.log x ∂(lawR μ B h n)) atTop
@@ -512,8 +513,8 @@ private theorem integrable_log_evalR {μ : Measure ℝ} [IsProbabilityMeasure μ
     (measurable_evalR B h n).aemeasurable).1 hi
 
 /-- A nonnegative field increment changes `freeEnergy` by a nonnegative
-amount at most equal to the increment. This proves the corresponding frozen
-free-energy increment bound. -/
+amount at most equal to the increment. This proves `DiamondPinning.freeEnergy_increment` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_field_increment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (h : ℝ) {u : ℝ} (hu : 0 ≤ u) :
@@ -582,7 +583,8 @@ theorem freeEnergy_field_increment_aux {μ : Measure ℝ} [IsProbabilityMeasure 
   constructor <;> linarith
 
 /-- The free energy is `1`-Lipschitz as a function of the field; this proves
-the Lipschitz consequence of the frozen free-energy increment bound. -/
+the Lipschitz form of `DiamondPinning.freeEnergy_increment` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_lipschitz_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     LipschitzWith 1 (fun h => freeEnergy μ B h) := by
@@ -607,7 +609,8 @@ theorem freeEnergy_lipschitz_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     rw [abs_of_nonneg (sub_nonneg.mpr hmono), abs_of_nonneg (sub_nonneg.mpr hyx)]
     simpa [abs_sub_comm] using hup
 
-/-- The free energy is nonnegative, proving the frozen `freeEnergy_nonneg`. -/
+/-- The free energy is nonnegative, proving `DiamondPinning.freeEnergy_nonneg` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_nonneg_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (h : ℝ) : 0 ≤ freeEnergy μ B h := by
@@ -699,7 +702,9 @@ private theorem logMoment_logc_le {μ : Measure ℝ} [IsProbabilityMeasure μ]
   simpa [logMoment, ν, hrhs] using hmono
 
 /-- The free energy vanishes at the annealed critical field
-`Real.log (B - 1)`. This proves the frozen vanishing statement at that field. -/
+`Real.log (B - 1)`. This is the vanishing statement used to prove
+`DiamondPinning.logShift_le_criticalPoint`
+(in `DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_logc_eq_zero_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     freeEnergy μ B (Real.log (B - 1)) = 0 := by
@@ -729,8 +734,9 @@ theorem freeEnergy_logc_eq_zero_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   have hge := freeEnergy_nonneg_aux hpos hmean hB ha
   exact le_antisymm hle hge
 
-/-- The free energy is nondecreasing in the field, proving the frozen
-monotonicity consequence of the field-increment bound. -/
+/-- The free energy is nondecreasing in the field, the monotonicity form of
+`DiamondPinning.freeEnergy_increment` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_monotone_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     Monotone (freeEnergy μ B) := by
@@ -743,7 +749,9 @@ theorem freeEnergy_monotone_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   simpa [heq] using hxle
 
 /-- The free energy vanishes at every field at or below
-`Real.log (B - 1)`. This proves the corresponding frozen zero-region bound. -/
+`Real.log (B - 1)`. This proves the zero-region bound underlying
+`DiamondPinning.logShift_le_criticalPoint` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_zero_left_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     {h : ℝ} (hh : h ≤ Real.log (B - 1)) : freeEnergy μ B h = 0 := by
@@ -957,7 +965,8 @@ private theorem exists_freeEnergy_pos_aux {μ : Measure ℝ} [IsProbabilityMeasu
   exact ⟨h₀, hfirst.trans_le hF⟩
 
 /-- The constructed critical point is the greatest field at which the free
-energy vanishes, proving the frozen `criticalPoint_isGreatest`. -/
+energy vanishes, proving `DiamondPinning.criticalPoint_isGreatest` (in
+`DiamondPinning.Statements.Main`). -/
 theorem criticalPoint_isGreatest_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     IsGreatest {h : ℝ | freeEnergy μ B h = 0} (criticalPoint μ B) := by

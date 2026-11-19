@@ -22,8 +22,8 @@ namespace DiamondPinning
 open Filter MeasureTheory Topology
 
 /-- One-sided increment control and `L¹` convergence to a continuous function
-imply uniform convergence on interior compact sets, proving the frozen
-`one_sided_compactness`. -/
+imply uniform convergence on interior compact sets, proving `DiamondPinning.one_sided_compactness`
+(in `DiamondPinning.Statements.OneSided`). -/
 theorem one_sided_compactness_aux (A B' C : ℝ) (f : ℕ → ℝ → ℝ) (g : ℝ → ℝ) (ε : ℕ → ℝ) (hAB : A < B')
     (hbound : ∃ M : ℝ, ∀ j x, x ∈ Set.Icc A B' → |f j x| ≤ M)
     (hmeas : ∀ j, AEStronglyMeasurable (f j) (volume.restrict (Set.Icc A B')))

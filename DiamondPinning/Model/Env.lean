@@ -21,7 +21,7 @@ module defines
 
 with their defining equations, the probability instance of `envMeasure` and
 the measurability of `evalR`, and the event `Env.Pos` that all leaf weights
-are positive. The bridge to the frozen law recursion `lawR` is stated in
+are positive. The bridge to the law recursion `lawR` is stated in
 `DiamondPinning.Statements.Env`. Statements about one field use `lawR`;
 arguments that compare fields or follow individual leaves use `evalR` on
 `envMeasure`.

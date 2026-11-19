@@ -248,7 +248,8 @@ private theorem integrable_shifted_cpow_prod {μ : Measure ℝ} [IsProbabilityMe
   exact Real.rpow_le_rpow_of_nonpos hb hbp (by simp only [Complex.sub_re, Complex.one_re]; linarith)
 
 /-- The correction is `z` times the shifted-moment integral with exponent
-`z - 1`, giving equation `eq:C` and proving the frozen `correction_eq`. -/
+`z - 1`, giving equation `eq:C` and proving `DiamondPinning.correction_eq` (in
+`DiamondPinning.Statements.Critical`). -/
 theorem correction_eq_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {n : ℕ} (hn : 1 ≤ n) {z : ℂ} (hz : z.re < 1) :
@@ -274,8 +275,8 @@ theorem correction_eq_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     _ = z * shiftedMomentIntegral μ B h n (z - 1) := by
       rfl
 
-/-- The correction is holomorphic on the half-plane `Re z < 1`, proving the
-frozen `differentiableOn_correction`. -/
+/-- The correction is holomorphic on the half-plane `Re z < 1`, proving
+`DiamondPinning.differentiableOn_correction` (in `DiamondPinning.Statements.Critical`). -/
 theorem differentiableOn_correction_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {n : ℕ} (hn : 1 ≤ n) :
@@ -342,7 +343,8 @@ private theorem cpow_sub_one_norm_le {R b x : ℝ} {z : ℂ} (hb : 0 < b) (hbx :
       _ ≤ 1 + b ^ (-R - 1) := le_add_of_nonneg_left zero_le_one
 
 /-- On every compact subset of `Re z < 1`, the correction has a norm bound
-uniform in the height, proving the frozen `correction_bounded`. -/
+uniform in the height, proving `DiamondPinning.correction_bounded` (in
+`DiamondPinning.Statements.Critical`). -/
 theorem correction_bounded_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {K : Set ℂ} (hK : IsCompact K) (hKsub : K ⊆ {z : ℂ | z.re < 1}) :

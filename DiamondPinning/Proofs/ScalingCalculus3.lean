@@ -134,9 +134,10 @@ private theorem transformAt_bounded_on_generations {μ : Measure ℝ}
 -- The variation, defect-sum, and one-sided Lipschitz estimates share one
 -- elaboration budget.
 set_option maxHeartbeats 400000 in
-/-- Proves the frozen `transform_bounded`: on a bounded generation interval the
-transform has uniform one-sided increments, summable Mellin defects, bounded
-variation, and an asymptotically uniform one-sided Lipschitz bound. -/
+/-- On a bounded generation interval the transform has uniform one-sided increments, summable
+Mellin defects, bounded variation, and an asymptotically uniform one-sided Lipschitz bound.
+This proves `DiamondPinning.transform_bounded` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem transform_bounded_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∃ C : ℝ, ∀ r δ s₀ M : ℝ, 0 < r → 0 < δ → 0 ≤ s₀ →

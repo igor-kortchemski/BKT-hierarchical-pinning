@@ -12,10 +12,4 @@ public import DiamondPinning.Proofs.FieldDerivProof
 public import DiamondPinning.Proofs.SpineProof
 public import DiamondPinning.Proofs.ResponseAssembly
 
-/-!
-# Helpers for the statements of `DiamondPinning.Statements.Response`
-
-Owned helper module for the holes of `DiamondPinning.Statements.Response`
-(Section 4 of the paper), which imports it. It must not import any
-`DiamondPinning.Statements` module or the Challenge.
--/
+/-! Proofs of the statements of `DiamondPinning.Statements.Response`. -/

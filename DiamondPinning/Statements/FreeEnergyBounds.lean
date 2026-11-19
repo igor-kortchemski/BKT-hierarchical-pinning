@@ -9,7 +9,7 @@ public import DiamondPinning.Proofs.FreeEnergyBounds
 # Key statements: the basic bounds of `lem:basic-bounds`
 
 The parts of `lem:basic-bounds` (`source/critical.tex` lines 15–26) that the
-other frozen statements do not already state: the deterministic floor, the
+other modules do not already state: the deterministic floor, the
 finite-size bounds `eq:finitesize`, nonnegativity and the field increments of
 the free energy, and `h_a ≤ h_c` (with `h_a = log c`, `c = B - 1`).
 (Existence of `F` and `F(h_c) = 0` are `freeEnergy_tendsto` and

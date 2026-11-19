@@ -1002,8 +1002,8 @@ private theorem spine_log_master {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact tendsto_nhds_unique hL hR'
 
 /-- The field derivatives, normalized by `tiltedProduct`, are the two spine
-expectations, and `1 / theta B - Real.log B` is positive.  This proves the
-frozen `spine_identities`. -/
+expectations, and `1 / theta B - Real.log B` is positive.  This proves
+`DiamondPinning.spine_identities` (in `DiamondPinning.Statements.Response`). -/
 theorem spine_identities_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     (n : ℕ) :

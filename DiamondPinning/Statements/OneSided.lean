@@ -5,7 +5,7 @@ public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 public import Mathlib.Topology.UniformSpace.UniformConvergence
 
 /-!
-# Statement N14: one-sided compactness
+# One-sided compactness
 
 The statement of `lem:one-sided` from `source/scaling.tex`, lines 195–209.
 -/

@@ -11,16 +11,15 @@ public import Mathlib.Analysis.Calculus.Deriv.Basic
 public import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 public import Mathlib.Analysis.Calculus.ContDiff.Defs
 
-/-!
-# Key statements, batch 2b (part 1): field response and contact moments
+/-! # Field response and contact moments
 
 Section 4 of the paper (`source/response.tex`): the contact representation
 and `prop:contact-moments` (lines 205–265), the field-differentiation
-envelope (author decision 4, node N25; it fills the interchange of derivative
-and expectation omitted at lines 87–93, 176–197 and 321–337),
-`response:spine-identities` (lines 62–96), `response:linear` (lines 98–132),
-`th:response` (lines 140–203) and `prop:window-moments` (lines 267–342). The
-passage estimate `response:ballot` is in `DiamondPinning.Statements.Ballot`.
+envelope justifying the interchange of derivative and expectation used at
+lines 87–93, 176–197 and 321–337, `response:spine-identities` (lines 62–96),
+`response:linear` (lines 98–132), `th:response` (lines 140–203) and
+`prop:window-moments` (lines 267–342). The passage estimate `response:ballot`
+is in `DiamondPinning.Statements.Ballot`.
 
 Standing assumptions: `μ` is the law of `W` (a probability measure with
 `W > 0` a.s. and `E W = 1`), `B > 2`, `c = B - 1`, `a = log B`,
@@ -34,7 +33,7 @@ Notation: `A_n(h) = tiltedMass μ B h n`, `Π_n(h) = tiltedProduct μ B h n`,
 `H_n, K_n, J_n = tiltedLogMoment μ B h k n` for `k = 1, 2, 3`,
 `𝒟_n = ∂_h A_n(h_c)` and `ℰ_n = ∂_h H_n(h_c)` (as `deriv`, whose
 differentiability is concluded by the envelope statements),
-`M_{k,n} = contactMoment`. The proofs are holes pending approval.
+`M_{k,n} = contactMoment`.
 -/
 
 @[expose] public section
@@ -94,10 +93,10 @@ theorem hasDerivAt_log_evalR {μ : Measure ℝ} [IsProbabilityMeasure μ]
       HasDerivAt (fun h' => Real.log (evalR B h' n e)) (gibbsMean B h n e (fun j => (j : ℝ))) h := by
   exact hasDerivAt_log_evalR_aux hpos hB h n
 
-/-! ### The differentiation envelope (decision 4, node N25) -/
+/-! ### The differentiation envelope -/
 
-/-- Field-differentiation envelope (author decision 4; the interchange used at
-`response.tex` lines 87–93 and 321–326): at every field `h` and every `n`, the
+/-- Field-differentiation envelope for the interchange used at
+`response.tex` lines 87–93 and 321–326: at every field `h` and every `n`, the
 tilted logarithmic moment `E[R_n(h)^θ (log R_n(h) - a)^k]` is differentiable
 in the field, with derivative `E[R_n(h)^θ ⟨C_n⟩_n (θ Z_n^k + k Z_n^{k-1})]`.
 Stated for every `k` (the paper uses `k ≤ 4`). -/
@@ -107,8 +106,8 @@ theorem hasDerivAt_tiltedLogMoment {μ : Measure ℝ} [IsProbabilityMeasure μ]
     HasDerivAt (fun h' => tiltedLogMoment μ B h' k n) (tiltedLogMomentDeriv μ B h k n) h := by
   exact hasDerivAt_tiltedLogMoment_aux hpos hmean hB h k n
 
-/-- Field-differentiation envelope for `A_n(h) = E R_n(h)^θ` (author
-decision 4; `response.tex` lines 87–88 and 244): at every field `h` and every
+/-- Field-differentiation envelope for `A_n(h) = E R_n(h)^θ`
+(`response.tex` lines 87–88 and 244): at every field `h` and every
 `n`, `∂_h A_n(h) = θ E[R_n(h)^θ ⟨C_n⟩_n] = θ M_{1,n}(h)`. -/
 theorem hasDerivAt_tiltedMass {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
@@ -116,8 +115,8 @@ theorem hasDerivAt_tiltedMass {μ : Measure ℝ} [IsProbabilityMeasure μ]
     HasDerivAt (fun h' => tiltedMass μ B h' n) (theta B * contactMoment μ B h 1 n) h := by
   exact hasDerivAt_tiltedMass_aux hpos hmean hB h n
 
-/-- Field-differentiation envelope, second derivative of `H_n` (author
-decision 4; `response.tex` lines 325–330): at every field `h` and every `n`,
+/-- Field-differentiation envelope, second derivative of `H_n`
+(`response.tex` lines 325–330): at every field `h` and every `n`,
 `∂_h H_n` is differentiable at `h`. -/
 theorem differentiableAt_deriv_tiltedLogMoment_one {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
@@ -125,8 +124,8 @@ theorem differentiableAt_deriv_tiltedLogMoment_one {μ : Measure ℝ} [IsProbabi
     DifferentiableAt ℝ (deriv fun h' => tiltedLogMoment μ B h' 1 n) h := by
   exact differentiableAt_deriv_tiltedLogMoment_one_aux hpos hmean hB h n
 
-/-- Field-differentiation envelope for the kernel term (author decision 4;
-`response.tex` lines 184–197, where `H_{n+1} = A_n H_n + ½ E ψ(S)` is
+/-- Field-differentiation envelope for the kernel term
+(`response.tex` lines 184–197, where `H_{n+1} = A_n H_n + ½ E ψ(S)` is
 differentiated): at every field `h` and every `n`, `h ↦ E ψ(S_n(h))` is
 differentiable at `h`. -/
 theorem differentiableAt_kernelMean {μ : Measure ℝ} [IsProbabilityMeasure μ]
@@ -297,10 +296,10 @@ theorem integrable_kernelPsi {μ : Measure ℝ} [IsProbabilityMeasure μ]
     Integrable (kernelPsi B) (productLaw μ B h n) := by
   exact integrable_kernelPsi_aux hpos hmean hB h hn
 
-/-! ### The fixed-height differentiation envelope (author's decision 4, node N25)
+/-! ### The fixed-height differentiation envelope
 
 `response.tex` lines 87–93, 176–197 and 321–337 differentiate expectations in
-the field; the justification is this envelope (audit F2). For a random
+the field; this envelope justifies those interchanges. For a random
 polynomial `Σ_k p_k e^{k h}` with nonnegative integrable coefficients (the
 contact polynomial of `R_n`, or of `S` or `S + c`), `x(h) = log Σ_k p_k e^{k h}`
 has `0 ≤ x' ≤ m` and `0 ≤ x'' ≤ m²`, so the first two field derivatives of

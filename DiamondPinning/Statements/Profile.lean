@@ -5,8 +5,7 @@ public import DiamondPinning.Model.Scaling
 public import DiamondPinning.Model.Profile
 public import DiamondPinning.Proofs.Profile
 
-/-!
-# Key statements, batch 2c (part 2): identification of the limiting profile
+/-! # Identification of the limiting profile
 
 Section 6 of the paper (`source/profile.tex`): `th:profile-identification`
 (lines 8–19) with `eq:exact-critical`, and the second expression of `γ` in
@@ -18,11 +17,10 @@ Standing assumptions as in `DiamondPinning.Statements.Scaling`: `μ` is the law
 of `W` (a probability measure with `W > 0` a.s. and `E W = 1`), `B > 2`,
 `a = log B`, `h_c > h_a`, and the residues `ℓ₃ = lim J_n/Π_n`,
 `κ = lim ∂_h H_n(h_c)/Π_n` enter as real parameters with their defining limits
-(blueprint E5), with `γ = 3 a² κ/(2 ℓ₃)`. A subsequential limit of
+as hypotheses, with `γ = 3 a² κ/(2 ℓ₃)`. A subsequential limit of
 `scaling:compactness` carries the entrance data
 `EntranceData T λ (λ κ a²/ℓ₃) C`; its profile parameter is
-`v = 3 α/2 = γ λ` with `α = λ κ a²/ℓ₃` (`profile.tex` line 154). The proofs are
-holes pending approval.
+`v = 3 α/2 = γ λ` with `α = λ κ a²/ℓ₃` (`profile.tex` line 154).
 -/
 
 @[expose] public section

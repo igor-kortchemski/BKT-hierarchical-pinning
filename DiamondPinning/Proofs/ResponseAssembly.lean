@@ -11,7 +11,7 @@ public import DiamondPinning.Proofs.WindowProof
 /-!
 # Section 4 results at `h_c` from their conditional proofs
 
-Assembles the frozen statements `response_linear`, `response_transversality`
+Assembles `DiamondPinning.response_linear`, `DiamondPinning.response_transversality`
 and `contactMoments` from the conditional theorems `response_linear_of`,
 `response_transversality_of`, `contactMoments_of`, with `th:product`
 (`criticalProduct_aux`) and the spine identities (`spine_identities_aux`).

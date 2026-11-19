@@ -13,7 +13,7 @@ public import DiamondPinning.Proofs.BKTProof
 /-!
 # Final assembly: Sections 5–8 and `th:bkt`
 
-Assembles the frozen statements `scaling_compactness`, `continuation`,
+Assembles the statements `scaling_compactness`, `continuation`,
 `exact_critical`, `gamma_eq_limit`, `freeEnergy_upper`, `escape_constant` and
 `bkt` from their conditional proofs, feeding each with the results it rests
 on (`th:product`, `th:response`, `prop:window-moments`,

@@ -22,8 +22,9 @@ open scoped Topology
 namespace DiamondPinning
 
 /-- A minimal-exponential-type function bounded by one on the imaginary axis
-is bounded by one throughout the closed right half-plane. This proves the
-frozen `rightHalfPlane_bounded_of_minimal_exponential_type`. -/
+is bounded by one throughout the closed right half-plane. This proves
+`DiamondPinning.rightHalfPlane_bounded_of_minimal_exponential_type` (in
+`DiamondPinning.Statements.EntireBounds`). -/
 theorem rightHalfPlane_bounded_of_minimal_exponential_type_aux
     (f : ℂ → ℂ)
     (hf_holo : DifferentiableOn ℂ f {z : ℂ | 0 < z.re})
@@ -111,8 +112,8 @@ theorem rightHalfPlane_bounded_of_minimal_exponential_type_aux
   exact Eventually.of_forall fun n => hδ _ (by positivity) z hz
 
 /-- Reflection transfers the minimal-exponential-type bound from the right
-half-plane to the left, proving the frozen
-`leftHalfPlane_bounded_of_minimal_exponential_type`. -/
+half-plane to the left, proving `DiamondPinning.leftHalfPlane_bounded_of_minimal_exponential_type`
+(in `DiamondPinning.Statements.EntireBounds`). -/
 theorem leftHalfPlane_bounded_of_minimal_exponential_type_aux
     (f : ℂ → ℂ)
     (hf_holo : DifferentiableOn ℂ f {z : ℂ | z.re < 0})

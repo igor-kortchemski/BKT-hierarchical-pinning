@@ -103,7 +103,8 @@ theorem integrable_rpow_abs_log_sub_of {Ω : Type*} [MeasurableSpace Ω]
   exact hC (q x) hx
 
 /-- The shifted absolute tilted logarithmic powers are integrable under `lawR`.
-This proves the frozen `integrable_absTiltedLogRpow`. -/
+This proves `DiamondPinning.integrable_absTiltedLogRpow` (in `DiamondPinning.Statements.Response`).
+-/
 theorem integrable_absTiltedLogRpow_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (h : ℝ) (n : ℕ) {s : ℝ} (hs : 0 ≤ s) :
@@ -526,8 +527,8 @@ private theorem integrable_exp_log_g {Ω : Type*} [MeasurableSpace Ω]
 
 
 /-- A finite positive exponential sum has an integrable logarithmic envelope and
-its first two field derivatives pass through the expectation.  This proves the
-frozen `field_envelope`. -/
+its first two field derivatives pass through the expectation.  This proves
+`DiamondPinning.field_envelope` (in `DiamondPinning.Statements.Response`). -/
 theorem field_envelope_aux {Ω : Type*} [MeasurableSpace Ω] (ν : Measure Ω) [IsProbabilityMeasure ν]
     {m : ℕ} (p : Fin (m + 1) → Ω → ℝ) (hp : ∀ k, Integrable (p k) ν)
     (hp0 : ∀ᵐ e ∂ν, (∀ k, 0 ≤ p k e) ∧ 0 < ∑ k, p k e)
@@ -686,12 +687,13 @@ theorem field_envelope_aux {Ω : Type*} [MeasurableSpace Ω] (ν : Measure Ω) [
 
 
 /-- The response kernel `kernelPsi` is integrable under the product law at
-positive height.  This proves the frozen `integrable_kernelPsi`. -/
+positive height.  This proves `DiamondPinning.integrable_kernelPsi` (in
+`DiamondPinning.Statements.Response`). -/
 theorem integrable_kernelPsi_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (h : ℝ) {n : ℕ} (hn : 1 ≤ n) :
     Integrable (kernelPsi B) (productLaw μ B h n) := by
-  -- The frozen source-facing statement includes this positive-height hypothesis.
+  -- The statement includes this positive-height hypothesis.
   have _ := hn
   let : IsProbabilityMeasure (lawR μ B h n) := isProbabilityMeasure_lawR B h n
   let : IsProbabilityMeasure (productLaw μ B h n) := by
@@ -850,7 +852,8 @@ private theorem integrable_evalR_rpow {μ : Measure ℝ} [IsProbabilityMeasure �
 
 
 /-- Every polynomial Gibbs contact moment has a finite tilted environment
-moment.  This proves the frozen `integrable_contactMoment`. -/
+moment.  This proves `DiamondPinning.integrable_contactMoment` (in
+`DiamondPinning.Statements.Response`). -/
 theorem integrable_contactMoment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ) (k n : ℕ) :
     Integrable (fun e => evalR B h n e ^ theta B * gibbsMean B h n e (fun j => (j : ℝ) ^ k))
@@ -879,7 +882,8 @@ theorem integrable_contactMoment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ
     _ = M * evalR B h n e ^ theta B := mul_comm _ _
 
 /-- The centered exponential Gibbs contact observable has a finite tilted
-environment moment.  This proves the frozen `integrable_contactExpMoment`. -/
+environment moment.  This proves `DiamondPinning.integrable_contactExpMoment` (in
+`DiamondPinning.Statements.Response`). -/
 theorem integrable_contactExpMoment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h u : ℝ) (n : ℕ) :
     Integrable (fun e => evalR B h n e ^ theta B *
@@ -1159,7 +1163,8 @@ private theorem spineW_log_base_le {B : ℝ} (hB : 2 < B) {n : ℕ} {r : ℝ}
     _ = p⁻¹ := mul_one _
 
 /-- The spine weight and its logarithmically tilted variant are integrable
-under `spineMeasure`.  This proves the frozen `integrable_spine`. -/
+under `spineMeasure`.  This proves `DiamondPinning.integrable_spine` (in
+`DiamondPinning.Statements.Response`). -/
 theorem integrable_spine_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ) (n : ℕ) :
     Integrable (fun x : ℝ × (Fin n → ℝ) => spineW B n x.1 x.2) (spineMeasure μ B h n) ∧

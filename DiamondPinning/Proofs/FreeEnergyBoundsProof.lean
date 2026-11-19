@@ -23,7 +23,8 @@ namespace DiamondPinning
 open MeasureTheory Filter Topology
 
 /-- The partition functions dominate the deterministic floor, which increases
-to one at the geometric rate `2 / B`. This proves the frozen `floor_bounds`. -/
+to one at the geometric rate `2 / B`. This proves `DiamondPinning.floor_bounds` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem floor_bounds_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) {B : ℝ} (hB : 2 < B) (h : ℝ) :
     (∀ n : ℕ, ∀ᵐ x ∂(lawR μ B h n), floorSeq B n ≤ x) ∧ Monotone (floorSeq B) ∧
@@ -33,7 +34,7 @@ theorem floor_bounds_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
 
 /-- The normalized height-`n` logarithmic mean, shifted by `Real.log B` or by
 the logarithm of the floor, bounds the free energy from below and above. This
-proves the frozen `finiteSize_bounds`. -/
+proves `DiamondPinning.finiteSize_bounds` (in `DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem finiteSize_bounds_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {n : ℕ} (hn : 1 ≤ n) :
@@ -85,8 +86,8 @@ theorem finiteSize_bounds_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
 /- Nonnegativity is proved by `freeEnergy_nonneg_aux` in `Model.FreeEnergy`. -/
 
 /-- A nonnegative field increment changes the free energy by a nonnegative
-amount at most equal to the increment, proving the frozen
-`freeEnergy_increment`. -/
+amount at most equal to the increment, proving `DiamondPinning.freeEnergy_increment` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem freeEnergy_increment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {u : ℝ} (hu : 0 ≤ u) :
@@ -102,7 +103,8 @@ theorem freeEnergy_increment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     simpa using hlip
 
 /-- The annealed critical field `Real.log (B - 1)` is at most the constructed
-quenched critical point, proving the frozen `logShift_le_criticalPoint`. -/
+quenched critical point, proving `DiamondPinning.logShift_le_criticalPoint` (in
+`DiamondPinning.Statements.FreeEnergyBounds`). -/
 theorem logShift_le_criticalPoint_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     Real.log (B - 1) ≤ criticalPoint μ B := by

@@ -103,7 +103,7 @@ theorem eval_contactPoly_exp (B h : ℝ) :
       ring
 
 /-- At height zero the Gibbs contact law is concentrated on one contact.
-This proves the frozen `gibbsWeight_zero`. -/
+This proves `DiamondPinning.gibbsWeight_zero` (in `DiamondPinning.Statements.Response`). -/
 theorem gibbsWeight_zero_aux {B : ℝ} (h : ℝ) {w : Env 0} (hw : Env.Pos 0 w) (k : ℕ) :
     gibbsWeight B h 0 w k = if k = 1 then 1 else 0 := by
   have ha : Real.exp h * (show ℝ from w) ≠ 0 :=
@@ -182,7 +182,8 @@ theorem contact_gibbsWeight_succ {B : ℝ} (hB : 1 < B) (h : ℝ) {n : ℕ} {e :
   split_ifs <;> simp
 
 /-- The root choice decomposes the successor Gibbs weights into contact and
-non-contact contributions.  This proves the frozen `gibbsWeight_succ`. -/
+non-contact contributions.  This proves `DiamondPinning.gibbsWeight_succ` (in
+`DiamondPinning.Statements.Response`). -/
 theorem gibbsWeight_succ_aux {B : ℝ} (hB : 2 < B) (h : ℝ) {n : ℕ} {e : Env (n + 1)}
     (he : Env.Pos (n + 1) e) (k : ℕ) :
     gibbsWeight B h (n + 1) e k =
@@ -220,8 +221,8 @@ theorem contact_evalR_add_eq_gibbsMean {B : ℝ} (hB : 1 < B) (h : ℝ) (n : ℕ
       field_simp [hevalp]
 
 /-- Almost surely, shifting the field multiplies the partition function by the
-Gibbs exponential contact mean.  This proves the frozen
-`evalR_add_eq_gibbsMean`. -/
+Gibbs exponential contact mean.  This proves `DiamondPinning.evalR_add_eq_gibbsMean` (in
+`DiamondPinning.Statements.Response`). -/
 theorem evalR_add_eq_gibbsMean_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) {B : ℝ} (hB : 2 < B) (h : ℝ) (n : ℕ) :
     ∀ᵐ e ∂(envMeasure μ n), ∀ u : ℝ,
@@ -284,7 +285,8 @@ theorem contact_hasDerivAt_log_evalR {B : ℝ} (hB : 1 < B) (h : ℝ) (n : ℕ)
   exact hevalR.log hp
 
 /-- Almost surely, the derivative of the logarithmic partition function is the
-Gibbs first contact moment.  This proves the frozen `hasDerivAt_log_evalR`. -/
+Gibbs first contact moment.  This proves `DiamondPinning.hasDerivAt_log_evalR` (in
+`DiamondPinning.Statements.Response`). -/
 theorem hasDerivAt_log_evalR_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) {B : ℝ} (hB : 2 < B) (h : ℝ) (n : ℕ) :
     ∀ᵐ e ∂(envMeasure μ n),
@@ -294,7 +296,8 @@ theorem hasDerivAt_log_evalR_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact contact_hasDerivAt_log_evalR (by linarith) h n e he
 
 /-- Almost surely, the Gibbs contact weights form a probability law on
-`{0, …, 2^n}`.  This proves the frozen `gibbsWeight_isProb`. -/
+`{0, …, 2^n}`.  This proves `DiamondPinning.gibbsWeight_isProb` (in
+`DiamondPinning.Statements.Response`). -/
 theorem gibbsWeight_isProb_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) {B : ℝ} (hB : 2 < B) (h : ℝ) (n : ℕ) :
     ∀ᵐ e ∂(envMeasure μ n),

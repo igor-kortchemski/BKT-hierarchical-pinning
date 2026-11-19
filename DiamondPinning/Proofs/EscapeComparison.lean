@@ -8,10 +8,11 @@ public import Mathlib.MeasureTheory.Integral.Layercake
 /-!
 # Exact coupling at the deterministic floor
 
-This module proves `escape_comparison_of_bandExit`, hence the frozen
-`escape_comparison`: deterministic-floor hard means are finite, the hard free
-energy transfers to the diamond free energy, and tail-dominated laws meeting
-the band-exit criterion give a uniform diamond-free-energy lower bound. It
+This module proves `escape_comparison_of_bandExit`, hence
+`DiamondPinning.escape_comparison` (in `DiamondPinning.Statements.Escape`).
+Deterministic-floor hard means are finite, the hard free energy transfers to
+the diamond free energy, and tail-dominated laws meeting the band-exit
+criterion give a uniform diamond-free-energy lower bound. It
 covers `escape:normalization`, `escape:energy-transfer`, and
 `escape:diamond-exit` in `source/escape.tex`, lines 156–189, with the second
 conclusion of the band-exit criterion supplied as an explicit hypothesis.

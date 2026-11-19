@@ -6,8 +6,7 @@ public import DiamondPinning.Proofs.Critical
 public import Mathlib.Analysis.Asymptotics.Theta
 public import Mathlib.Analysis.Calculus.Deriv.Basic
 
-/-!
-# Key statements, batch 2a: critical moments and the critical product
+/-! # Critical moments and the critical product
 
 Sections 2 and 3 of the paper: `lem:mellin-correction`, the Jensen step
 `eq:jensen` (proof of `prop:criticalmoments`, used again in `th:return`),
@@ -19,7 +18,7 @@ the field comparison) are proved in `DiamondPinning.Model.Basic` and
 Standing assumptions: `μ` is the law of `W` (a probability measure with
 `W > 0` a.s. and `E W = 1`), `B > 2`, `c = B - 1`, `a = log B`,
 `θ = log 2 / log B`, `ρ = 2 / B`, `b_n = floorSeq B n`. Statements at `h_c`
-assume `h_c > h_a = log c`. The proofs are holes pending approval.
+assume `h_c > h_a = log c`.
 -/
 
 @[expose] public section

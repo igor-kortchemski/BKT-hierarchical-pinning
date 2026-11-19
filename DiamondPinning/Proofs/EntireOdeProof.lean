@@ -683,8 +683,9 @@ private theorem volterra_growth
 end
 
 /-- The matrix Volterra equation has a continuous solution on `[0, T]`, and
-any two continuous solutions agree there. This proves the frozen
-`matrix_integral_solution_exists_unique`. -/
+any two continuous solutions agree there. This proves
+`DiamondPinning.matrix_integral_solution_exists_unique` (in
+`DiamondPinning.Statements.EntireBounds`). -/
 theorem matrix_integral_solution_exists_unique_aux
     (T m M : ℝ) (hT : 0 < T) (w : ℝ → ℝ) (hw : Measurable w)
     (hm : 0 < m) (hw_lower : ∀ t ∈ Set.Ioo (0 : ℝ) T, m ≤ w t)
@@ -728,8 +729,8 @@ theorem matrix_integral_solution_exists_unique_aux
     exact h₁.trans h₂.symm
 
 /-- Every continuous solution of the matrix Volterra equation satisfies the
-minimal-exponential-type growth bound at time `T`, proving the frozen
-`matrix_integral_growth_bound`. -/
+minimal-exponential-type growth bound at time `T`, proving
+`DiamondPinning.matrix_integral_growth_bound` (in `DiamondPinning.Statements.EntireBounds`). -/
 theorem matrix_integral_growth_bound_aux
     (T m M : ℝ) (hT : 0 < T) (w : ℝ → ℝ) (hw : Measurable w)
     (hm : 0 < m) (hw_lower : ∀ t ∈ Set.Ioo (0 : ℝ) T, m ≤ w t)

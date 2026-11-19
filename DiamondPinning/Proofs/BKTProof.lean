@@ -12,14 +12,14 @@ public import Mathlib.Analysis.SpecialFunctions.Sqrt
 public import Mathlib.Topology.Algebra.Order.Field
 
 /-!
-# Assembly of `th:bkt`, conditional on four frozen statements
+# Assembly of `th:bkt`, conditional on four asymptotic inputs
 
-`bkt_of` proves the conclusion of the frozen `bkt`
+`bkt_of` proves the conclusion of `DiamondPinning.bkt`
 (`DiamondPinning.Statements.Main`) from the proved `th:product`
 (`criticalProduct_aux`), `th:response` (`response_transversality_aux`), the
 differentiability of `H_n` (`hasDerivAt_tiltedLogMoment_aux`) and the basic
-properties of `F` and `h_c`, with four frozen statements still being proved
-elsewhere as hypotheses, each quantified over the residues:
+properties of `F` and `h_c`, with four further asymptotic results as
+hypotheses, each quantified over the residues:
 `exact_critical` and `gamma_eq_limit` (`Statements/Profile.lean`),
 `freeEnergy_upper` and `escape_constant` (`Statements/Escape.lean`).
 -/
@@ -48,8 +48,8 @@ theorem tendsto_sqrt_inv_nhdsGT_zero :
   Real.tendsto_sqrt_atTop.comp tendsto_inv_nhdsGT_zero
 
 /-- Theorem `th:bkt`, conditional on `exact_critical`, `gamma_eq_limit`,
-`freeEnergy_upper` and `escape_constant`, whose frozen statements enter as
-hypotheses quantified over the residues. -/
+`freeEnergy_upper` and `escape_constant`, which enter as hypotheses
+quantified over the residues. -/
 theorem bkt_of {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (hshift : Real.log (B - 1) < criticalPoint μ B)

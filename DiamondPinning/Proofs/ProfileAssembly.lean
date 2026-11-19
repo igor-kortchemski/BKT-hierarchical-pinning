@@ -8,8 +8,9 @@ public import DiamondPinning.Proofs.ResponseAssembly
 /-!
 # `th:profile-identification` at `h_c`
 
-Assembles the frozen statement `profile_identification` from the conditional
-theorem `profile_identification_of` (`DiamondPinning.Proofs.ProfileProof`),
+Assembles `DiamondPinning.profile_identification` (in
+`DiamondPinning.Statements.Profile`) from the conditional theorem `profile_identification_of`
+(`DiamondPinning.Proofs.ProfileProof`),
 with `th:product` (`criticalProduct_aux`) and `th:response`
 (`response_transversality_aux`).
 -/

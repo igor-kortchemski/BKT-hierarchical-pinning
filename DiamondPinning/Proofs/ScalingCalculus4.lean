@@ -262,9 +262,10 @@ private theorem transformAt_bounded_on_generations {μ : Measure ℝ}
 -- The uniform recurrence comparison and its finite-sum estimates share one
 -- elaboration budget.
 set_option maxHeartbeats 400000 in
-/-- Proves the frozen `transform_difference`: uniformly for weights in a compact
-interval, the summed recurrence-difference errors on a bounded generation
-interval are `O(N⁻¹)`. -/
+/-- Uniformly for weights in a compact interval, the summed recurrence-difference errors on a
+bounded generation interval are `O(N⁻¹)`.
+This proves `DiamondPinning.transform_difference` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem transform_difference_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∀ r δ s₀ s₁ M : ℝ, 0 < r → 0 < δ → 0 ≤ s₀ → s₀ ≤ s₁ →

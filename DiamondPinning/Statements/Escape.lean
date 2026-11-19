@@ -8,15 +8,14 @@ public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 public import Mathlib.Analysis.SpecialFunctions.Sqrt
 public import Mathlib.Topology.Instances.ENNReal.Lemmas
 
-/-!
-# Key statements, batch 2b (part 2): free-energy asymptotics
+/-! # Free-energy asymptotics
 
 Section 8 of the paper (`source/escape.tex`): `cont:freeenergyupper`
 (lines 11–36), the hard recursion and `F_d` (lines 45–50), `escape:pairs`
 (lines 52–94), `escape:band-exit` (lines 96–154), `escape:comparison`
 (lines 156–189) and `escape:constant` (lines 199–239).
 
-The hard free energy takes values in `[0, ∞]` (author decision 1):
+The hard free energy takes values in `[0, ∞]`:
 `F_d(ν) = inf_j 2^{-j} E Y_j` for every law `ν` on `ℕ`, which is the source's
 limit (`hardFreeEnergy_tendsto`), with a real specialization when
 `E Y_0 < ∞` (`hardFreeEnergy_real`). The hard statements hold for every
@@ -24,12 +23,11 @@ initial law on `ℕ` and need no model assumption.
 
 `cont:freeenergyupper` and `escape:constant` are results about the model
 under `h_c > h_a`. Their constant `γ = 3 a² κ / (2 ℓ₃)` (`eq:gamma`) is that
-of `th:bkt`; following blueprint E5 the residues `ℓ₃ = lim J_n / Π_n` and
+of `th:bkt`; the residues `ℓ₃ = lim J_n / Π_n` and
 `κ = lim ∂_h H_n(h_c) / Π_n` enter as real parameters with their defining
 limits as hypotheses (the limits exist by `th:product` and `th:response`, and
 are unique). For `λ > 0`, `v = γ λ` and `T_v = π / √v`. The `limsup` and
-`liminf` of the source are stated in eventual form. The proofs are holes
-pending approval.
+`liminf` of the source are stated in eventual form.
 -/
 
 @[expose] public section
@@ -57,7 +55,7 @@ theorem hardFreeEnergy_ge (ν : Measure ℕ) [IsProbabilityMeasure ν] (j : ℕ)
     ((2 : ℝ≥0∞) ^ j)⁻¹ * (hardMean ν j - 1) ≤ hardFreeEnergy ν := by
   exact hardFreeEnergy_ge_aux ν j
 
-/-- Real specialization of `F_d` (author decision 1; `escape.tex` line 48):
+/-- Real specialization of `F_d` (`escape.tex` line 48):
 if `E Y_0 < ∞`, then every `E Y_j` and `F_d` are finite and
 `2^{-j} E Y_j → F_d` in `ℝ`. -/
 theorem hardFreeEnergy_real (ν : Measure ℕ) [IsProbabilityMeasure ν]

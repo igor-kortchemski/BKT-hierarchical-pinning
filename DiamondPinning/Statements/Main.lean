@@ -8,20 +8,13 @@ public import Mathlib.Analysis.Calculus.Deriv.Basic
 public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 public import Mathlib.Analysis.SpecialFunctions.Sqrt
 
-/-!
-# Key statements, batch 1
+/-! # The main theorem and basic free-energy facts
 
 The main theorem `th:bkt` of *BKT asymptotics for disordered pinning on the
 diamond hierarchical lattice* and the parts of `lem:basic-bounds` that give
 the definitions of `DiamondPinning.Model.Defs` their meaning: the
 expectations involved are integrals of integrable functions, the limit
 defining `F(h)` exists, and `h_c` is the greatest zero of `F`.
-
-The author approved these statements on 18 November 2026. Their proofs are
-registered holes of the freeze record: each is filled with proof text only,
-using the owned helper modules `DiamondPinning.Proofs.BasicBounds` (the five
-parts of `lem:basic-bounds`) and `DiamondPinning.Proofs.BKT` (`bkt`), which
-this file imports.
 
 Standing assumptions of the paper (Section 1.1): `B > 2`, and `W > 0` almost
 surely with `E W = 1`; the law of `W` is a probability measure `μ` on `ℝ`.

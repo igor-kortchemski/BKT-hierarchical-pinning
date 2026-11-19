@@ -867,7 +867,8 @@ in the source's proof, `response.tex` lines 40–60): `C` depends only on `b`,
 `η`, `δ`, a threshold `N₀` from which the tail bound holds, a bound `mNeg` on
 `E Y_0^-` and a bound `mPos` on `Σ_j (E Y_j)^+`, and works for every probability
 space and every sequence of independent integrable increments satisfying the
-hypotheses with these data.  This proves the frozen `response_ballot_uniform`. -/
+hypotheses with these data.  This proves `DiamondPinning.response_ballot_uniform` (in
+`DiamondPinning.Statements.Ballot`). -/
 theorem response_ballot_uniform_aux {b η δ mNeg mPos : ℝ} (N₀ : ℕ) (hb : 0 ≤ b) (hη : 0 < η)
     (hδ : 0 < δ) :
     ∃ C : ℝ, ∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
@@ -955,7 +956,7 @@ all these hypotheses, such that for every `n` and every `z ≥ 0`,
 The separate integrability of the negative part of `Y 0` is implied by
 integrability of `Y 0`; it is retained because the source states it explicitly.
 The sums are written out rather than introducing a new definition of `S`.
-This proves the frozen `response_ballot`. -/
+This proves `DiamondPinning.response_ballot` (in `DiamondPinning.Statements.Ballot`). -/
 theorem response_ballot_aux {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
     [IsProbabilityMeasure μ] (Y : ℕ → Ω → ℝ) (hYindep : iIndepFun Y μ)
     (hYint : ∀ j, Integrable (Y j) μ) {b η δ : ℝ} (hb : 0 ≤ b) (hη : 0 < η)
@@ -967,7 +968,7 @@ theorem response_ballot_aux {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
     ∃ C : ℝ, ∀ (n : ℕ) (z : ℝ), 0 ≤ z →
       μ.real {ω | ∀ k ≤ n, -z ≤ ∑ j ∈ Finset.range k, Y j ω} ≤
         C * (z + 1) / (n + 1) := by
-  -- The frozen statement retains this source hypothesis, though `hYint 0` implies it.
+  -- This source hypothesis is retained, though `hYint 0` implies it.
   have _ := hY0neg
   rcases eventually_atTop.mp htail with ⟨N₀, hN₀⟩
   rcases response_ballot_uniform_aux (mNeg := ∫ ω, (Y 0 ω)⁻ ∂μ)

@@ -6,9 +6,9 @@ public import Mathlib.MeasureTheory.Measure.Prod
 /-!
 # The pair-counting lemma `escape:pairs`
 
-Proof of `escape:pairs` (`source/escape.tex`, lines 52–94) for the frozen
-statement `escape_pairs` of `DiamondPinning.Statements.Escape`, as
-`escape_pairs_aux`.
+Proof of `escape:pairs` (`source/escape.tex`, lines 52–94). The theorem
+`escape_pairs_aux` proves `DiamondPinning.escape_pairs` (in
+`DiamondPinning.Statements.Escape`).
 
 The hard recursion is realized on perfect binary trees `HardTree n` (with
 `HardTree 0 = ℕ` and `HardTree (n + 1) = HardTree n × HardTree n`) carrying
@@ -957,7 +957,8 @@ theorem pairs_final_arith {x M f s g p : ℝ} (hx : 2 ≤ x) (hM : 0 ≤ M)
 
 /-- The pair tail bound: for `M_I = E[2^{Y_0} 1{Y_0 ∈ I}]`, the probability
 that the height-`L` hard value is at least `k` is at least
-`2⁻ᵏ · 2 (M_I / (M_I + 2))²`. This proves the frozen `escape_pairs`, covering
+`2⁻ᵏ · 2 (M_I / (M_I + 2))²`. This proves `DiamondPinning.escape_pairs` (in
+`DiamondPinning.Statements.Escape`), covering
 `escape:pair-tail` in `source/escape.tex`, lines 52–61. -/
 theorem escape_pairs_aux (ν : Measure ℕ) [IsProbabilityMeasure ν] {L : ℕ} (hL : 2 ≤ L)
     {I : Finset ℕ} (hI : I ⊆ upperBand L) {k : ℕ} (hk : 1 ≤ k) (hkL : k ≤ L / 2) :

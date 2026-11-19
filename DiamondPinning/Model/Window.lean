@@ -36,7 +36,7 @@ noncomputable def kernelMean (μ : Measure ℝ) (B h : ℝ) (n : ℕ) : ℝ :=
   ∫ s, kernelPsi B s ∂(productLaw μ B h n)
 
 /-- The average `h ↦ ∫ f e h dν(e)` of a family of functions of the field `h`
-(used by the differentiation envelope, decision 4). -/
+used by the differentiation envelope. -/
 noncomputable def fieldMean {Ω : Type*} [MeasurableSpace Ω] (ν : Measure Ω) (f : Ω → ℝ → ℝ)
     (h : ℝ) : ℝ :=
   ∫ e, f e h ∂ν

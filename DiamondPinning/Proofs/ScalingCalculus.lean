@@ -608,8 +608,10 @@ private theorem kernel_pointwise_comparison {B b q₁ q₂ : ℝ} (F : ℝ → �
       _ ≤ CF * (defectKernel B q r + 2 * K * max (1 - r) 0) :=
         mul_le_mul_of_nonneg_right hCFG hrhs
 
-/-- Proves the frozen `transform_recurrence`: the exact one-generation recurrence
-for the rescaled real transform, including its Mellin-defect term. -/
+/-- The exact one-generation recurrence for the rescaled real transform, including its
+Mellin-defect term.
+This proves `DiamondPinning.transform_recurrence` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem transform_recurrence_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {N : ℝ} (hN : 0 < N) {n : ℕ} (hn : 1 ≤ n) {s : ℝ} (hs : 0 ≤ s) :
@@ -641,8 +643,10 @@ theorem transform_recurrence_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
       field_simp [hN.ne']
       ring
 
-/-- Proves the frozen `transform_floor`: the geometric lower bound and the
-monotonicity comparison of transforms above the reference weight. -/
+/-- The geometric lower bound and the monotonicity comparison of transforms above the reference
+weight.
+This proves `DiamondPinning.transform_floor` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem transform_floor_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∃ C : ℝ, ∀ (h N : ℝ) (n : ℕ) (s₀ s : ℝ), 0 < N → 0 ≤ s₀ → s₀ ≤ s →
@@ -716,8 +720,9 @@ theorem transform_floor_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   · unfold transformAt
     nlinarith
 
-/-- Proves the frozen `rescaledMeasure_finite`: the rescaled measure is finite and
-assigns zero mass to the negative half-line. -/
+/-- The rescaled measure is finite and assigns zero mass to the negative half-line.
+This proves `DiamondPinning.rescaledMeasure_finite` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem rescaledMeasure_finite_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {N : ℝ} (hN : 0 < N) (n : ℕ) :
@@ -755,8 +760,10 @@ theorem rescaledMeasure_finite_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
       exact fun h1 h2 => (not_lt_of_ge h2) h1
     simp [hem]
 
-/-- Proves the frozen `defectMean_lower`: uniformly on compact exponent intervals,
-the negative part of the Mellin defect is at most a geometric floor error. -/
+/-- Uniformly on compact exponent intervals, the negative part of the Mellin defect is at most a
+geometric floor error.
+This proves `DiamondPinning.defectMean_lower` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem defectMean_lower_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∀ q₁ q₂ : ℝ, 0 < q₁ → q₂ < 1 → ∃ C : ℝ, ∀ (h : ℝ) (n : ℕ), 1 ≤ n →
@@ -786,9 +793,10 @@ theorem defectMean_lower_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact defectKernel_lower hB hb hb1 (hq₁.trans_le hq.1) (hq.2.trans_lt hq₂)
     hq.1 hρ hb1r hr hbf
 
-/-- Proves the frozen `kernel_comparison`: a bounded function differentiable near
-one has product-kernel expectation controlled by the Mellin defect and a
-geometric floor error. -/
+/-- For a bounded function differentiable near one, the product-kernel expectation is controlled
+by the Mellin defect and a geometric floor error.
+This proves `DiamondPinning.kernel_comparison` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem kernel_comparison_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∀ q₁ q₂ : ℝ, 0 < q₁ → q₂ < 1 → ∃ C : ℝ, ∀ F : ℝ → ℝ, Measurable F →

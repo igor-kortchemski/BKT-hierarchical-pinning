@@ -4,14 +4,7 @@ public import DiamondPinning.Model.Env
 public import DiamondPinning.Model.InstancePins
 public import DiamondPinning.Model.Basic
 
-/-!
-# Helpers for the frozen statements of `DiamondPinning.Statements.Env`
-
-Owned helper module for the holes `ae_envPos`, `evalR_pos` and
-`map_evalR_envMeasure` of `DiamondPinning.Statements.Env`, which imports it.
-It must not import `DiamondPinning.Statements.Env`,
-`DiamondPinning.Statements.Main` or the Challenge.
--/
+/-! Proofs of the statements of `DiamondPinning.Statements.Env`. -/
 
 @[expose] public section
 

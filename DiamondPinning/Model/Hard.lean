@@ -8,8 +8,7 @@ public import Mathlib.Algebra.Order.Floor.Semiring
 # The hard recursion (Section 8)
 
 Definitions for Section 8 of the paper (`source/escape.tex`, lines 45–55 and
-156–162), with the hard free energy in `[0, ∞]` (author decision 1, blueprint
-E4):
+156–162), with the hard free energy in `[0, ∞]`:
 
 * `hardLaw ν j`, the law of `Y_j` for the hard recursion
   `Y_{j+1} = (Y_j^{(1)} + Y_j^{(2)} - 1)^+` with independent copies and initial
@@ -42,8 +41,8 @@ noncomputable def hardLaw (ν : Measure ℕ) (j : ℕ) : Measure ℕ :=
 noncomputable def hardMean (ν : Measure ℕ) (j : ℕ) : ℝ≥0∞ :=
   ∫⁻ y, (y : ℝ≥0∞) ∂(hardLaw ν j)
 
-/-- The hard free energy `F_d = inf_j 2^{-j} E Y_j ∈ [0, ∞]` (author
-decision 1); it equals `lim_j 2^{-j} E Y_j`, the source's definition. -/
+/-- The hard free energy `F_d = inf_j 2^{-j} E Y_j ∈ [0, ∞]`; it equals `lim_j 2^{-j} E Y_j`, the
+source's definition. -/
 noncomputable def hardFreeEnergy (ν : Measure ℕ) : ℝ≥0∞ :=
   ⨅ j : ℕ, ((2 : ℝ≥0∞) ^ j)⁻¹ * hardMean ν j
 

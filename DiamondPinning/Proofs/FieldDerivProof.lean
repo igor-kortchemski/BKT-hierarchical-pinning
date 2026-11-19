@@ -260,7 +260,8 @@ theorem tiltedLogMomentDeriv_eq_env {μ : Measure ℝ} [IsProbabilityMeasure μ]
   ring
 
 /-- The derivative of a tilted logarithmic moment is the corresponding Gibbs
-contact expression.  This proves the frozen `hasDerivAt_tiltedLogMoment`. -/
+contact expression.  This proves `DiamondPinning.hasDerivAt_tiltedLogMoment` (in
+`DiamondPinning.Statements.Response`). -/
 theorem hasDerivAt_tiltedLogMoment_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     (k n : ℕ) :
@@ -278,7 +279,8 @@ theorem hasDerivAt_tiltedLogMoment_aux {μ : Measure ℝ} [IsProbabilityMeasure 
   exact H
 
 /-- The tilted normalizing mass has derivative `theta B` times the first
-contact moment.  This proves the frozen `hasDerivAt_tiltedMass`. -/
+contact moment.  This proves `DiamondPinning.hasDerivAt_tiltedMass` (in
+`DiamondPinning.Statements.Response`). -/
 theorem hasDerivAt_tiltedMass_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     (n : ℕ) :
@@ -295,7 +297,8 @@ theorem hasDerivAt_tiltedMass_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
   ring
 
 /-- The derivative of the first tilted logarithmic moment is differentiable.
-This proves the frozen `differentiableAt_deriv_tiltedLogMoment_one`. -/
+This proves `DiamondPinning.differentiableAt_deriv_tiltedLogMoment_one` (in
+`DiamondPinning.Statements.Response`). -/
 theorem differentiableAt_deriv_tiltedLogMoment_one_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     (n : ℕ) :
@@ -532,8 +535,8 @@ theorem kernelMean_eq_env {μ : Measure ℝ} [IsProbabilityMeasure μ]
     Real.log_div hsc.ne' (pow_ne_zero 2 (by linarith : B ≠ 0)), Real.log_pow]
   ring
 
-/-- The product-kernel mean is differentiable in the field.  This proves the
-frozen `differentiableAt_kernelMean`. -/
+/-- The product-kernel mean is differentiable in the field.  This proves
+`DiamondPinning.differentiableAt_kernelMean` (in `DiamondPinning.Statements.Response`). -/
 theorem differentiableAt_kernelMean_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     (n : ℕ) :

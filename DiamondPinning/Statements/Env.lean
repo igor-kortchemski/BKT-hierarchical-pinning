@@ -3,18 +3,13 @@ module
 public import DiamondPinning.Model.Env
 public import DiamondPinning.Proofs.Env
 
-/-!
-# The model-to-law bridge (key statement K3)
+/-! # The model-to-law bridge
 
 Positivity of the environments and the bridge
 `map (evalR B h n) (envMeasure μ n) = lawR μ B h n`: at every field, the
 partition function of an environment with independent leaf weights of law
-`μ` has the law of the frozen recursion `lawR`.
-
-Approved on 18 November 2026 (by the author's delegation to an Astra review)
-with the definitions of `DiamondPinning.Model.Env`. The proofs are registered
-holes of the freeze record, filled with proof text only, using the owned
-helper module `DiamondPinning.Proofs.Env`, which this file imports.
+`μ` has the law given by the recursion `lawR`, using the definitions of
+`DiamondPinning.Model.Env`.
 -/
 
 @[expose] public section

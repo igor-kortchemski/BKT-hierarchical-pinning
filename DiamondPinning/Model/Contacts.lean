@@ -13,7 +13,7 @@ environment, the Gibbs measure chooses the product term `S = R_n^{(1)} R_n^{(2)}
 with probability `S / (S + c)`, adding the contact counts of the two subtrees;
 otherwise the count is zero; the initial count is `C_0 = 1`.
 
-The Gibbs law is encoded by a finite polynomial (blueprint E3):
+The Gibbs law is encoded by a finite polynomial:
 
 * `contactPoly B h n e`, the contact polynomial `P_e ∈ ℝ[X]` of the
   environment `e` at field `h`: `C(e^h w) X` at a leaf of weight `w`, and

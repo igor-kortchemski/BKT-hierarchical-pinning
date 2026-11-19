@@ -6,8 +6,7 @@ public import DiamondPinning.Model.Profile
 public import DiamondPinning.Proofs.Scaling
 public import Mathlib.Topology.UniformSpace.UniformConvergence
 
-/-!
-# Key statements, batch 2c (part 1): the near-critical scaling limit
+/-! # The near-critical scaling limit
 
 Section 5 of the paper (`source/scaling.tex`): the scaling objects
 (lines 9–41, definitions in `DiamondPinning.Model.Scaling` and
@@ -22,14 +21,13 @@ Standing assumptions: `μ` is the law of `W` (a probability measure with
 real and generations are natural numbers (lines 10–11). The Mellin lemma holds
 at every field `h`, with constants independent of `h` (it is applied at the
 fields `h_N`, which vary with `N`). `scaling:compactness` and
-`cont:continuation` are results about the model under `h_c > h_a`; following
-blueprint E5, the residues `ℓ₃ = lim J_n/Π_n` and `κ = lim ∂_h H_n(h_c)/Π_n`
+`cont:continuation` are results about the model under `h_c > h_a`; the
+residues `ℓ₃ = lim J_n/Π_n` and `κ = lim ∂_h H_n(h_c)/Π_n`
 enter as real parameters with their defining limits as hypotheses, and
 `γ = 3 a² κ/(2 ℓ₃)` (`eq:gamma`), `v = γ λ`.
 
-The Mellin lemma uses the domains of author decision 2 (audit F3–F4):
-measurable kernels, generations `n ≥ 1`, weights in a compact `[s₀, s₁]` with
-`q_N(s) ≥ 0` (here: `N` large). The proofs are holes pending approval.
+The Mellin lemma uses measurable kernels, generations `n ≥ 1`, and weights in
+a compact `[s₀, s₁]` with `q_N(s) ≥ 0` for sufficiently large `N`.
 -/
 
 @[expose] public section
@@ -63,7 +61,7 @@ theorem defectMean_lower {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact defectMean_lower_aux hpos hmean hB
 
 /-- `scaling:mellin-calculus`, `scaling:kernel` (`scaling.tex` lines 131–136),
-with the domains of author decision 2 (measurable `F`, `n ≥ 1`): for a fixed
+for measurable `F` and `n ≥ 1`: for a fixed
 compact subinterval `[q₁, q₂]` of `(0, 1)` there is `C` such that for every
 measurable `F` bounded on `[b_1², ∞)` and differentiable near `1` there is
 `C_F` with `|E F(r_n) - F(1)| ≤ C_F (D_n(q₀) + C ρ^n)` for all
@@ -93,7 +91,7 @@ theorem defectMean_sub {μ : Measure ℝ} [IsProbabilityMeasure μ]
 /-- `scaling:mellin-calculus`, `cont:recurrence` (`scaling.tex` lines 142–147):
 the exact transform recurrence
 `L_{n+1,N}(s) = e^{s/N} L_{n,N}(s) + e^{s/N}/(2N) L_{n,N}(s)² - (N/2) e^{s/N} D_n(q_N(s))`,
-at every field `h`, for real `N > 0`, `n ≥ 1` (decision 2) and `s ≥ 0`
+at every field `h`, for real `N > 0`, `n ≥ 1` and `s ≥ 0`
 (`scaling.tex` line 19). -/
 theorem transform_recurrence {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
@@ -105,8 +103,7 @@ theorem transform_recurrence {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact transform_recurrence_aux hpos hmean hB h hN hn hs
 
 /-- Proof of `scaling:mellin-calculus`, the floor and monotonicity display
-(`scaling.tex` lines 184–188), on the range where it holds (audit F3,
-decision 2: `0 ≤ s₀ ≤ s` and `q_N(s) ≥ 0`): there is `C` with
+(`scaling.tex` lines 184–188), for `0 ≤ s₀ ≤ s` and `q_N(s) ≥ 0`: there is `C` with
 `-C N ρ^n ≤ L_{n,N}(s) ≤ L_{n,N}(s₀) + C N ρ^n` at every field `h`, for every
 real `N > 0` and every `n`. -/
 theorem transform_floor {μ : Measure ℝ} [IsProbabilityMeasure μ]
@@ -152,8 +149,8 @@ theorem transform_bounded {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact transform_bounded_aux hpos hmean hB
 
 /-- `scaling:mellin-calculus`, `scaling:transform-difference` (`scaling.tex`
-lines 161–167), with weights in a compact `[s₀, s₁]` (decision 2; `N` large,
-so that `q_N(s) ≥ 0`): for a time interval `[r, r + δ] ⊂ (0, ∞)`,
+lines 161–167), with weights in a compact `[s₀, s₁]` and `N` large enough
+that `q_N(s) ≥ 0`: for a time interval `[r, r + δ] ⊂ (0, ∞)`,
 `0 ≤ s₀ ≤ s₁` and a bound `M`, there are `N₁` and `C` such that for every real
 `N ≥ N₁` and every field `h`, if `|L_N(t, s₀)| ≤ M` for `t ∈ [r, r + δ]`, then
 for every `s ∈ [s₀, s₁]` the errors

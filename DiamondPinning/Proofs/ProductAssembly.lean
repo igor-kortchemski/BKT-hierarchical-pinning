@@ -7,7 +7,8 @@ public import DiamondPinning.Proofs.ProductProof
 /-!
 # `th:product` from `th:return` and `eq:Hsmall`
 
-Assembles the frozen statement `criticalProduct` from the conditional theorem
+Assembles `DiamondPinning.criticalProduct` (in
+`DiamondPinning.Statements.Critical`) from the conditional theorem
 `criticalProduct_of_return` (`DiamondPinning.Proofs.ProductProof`) and the
 proved `returns_to_one_aux`, `criticalProduct_Hsmall_aux`
 (`DiamondPinning.Proofs.ReturnProof`).

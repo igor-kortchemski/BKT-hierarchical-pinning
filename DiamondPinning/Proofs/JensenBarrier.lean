@@ -237,7 +237,8 @@ private theorem realMoment_succ_lower {μ : Measure ℝ} [IsProbabilityMeasure �
   exact hmain
 
 /-- Squaring and taking the `q`-th power gives the recursive lower bound for
-fractional moments in `eq:jensen`, proving the frozen `jensen_step`. -/
+fractional moments in `eq:jensen`, proving `DiamondPinning.jensen_step` (in
+`DiamondPinning.Statements.Critical`). -/
 theorem jensen_step_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) (h : ℝ)
     {q : ℝ} (hq0 : 0 < q) (hq1 : q < 1) (n : ℕ) :
@@ -572,8 +573,8 @@ private theorem realMoment_field_le {μ : Measure ℝ} [IsProbabilityMeasure μ]
   exact hI
 
 /-- At the critical point the fractional moment is bounded below by the
-floor-centered barrier `floorSeq B n ^ q + B ^ q - 2`, proving the frozen
-`barrier`. -/
+floor-centered barrier `floorSeq B n ^ q + B ^ q - 2`, proving `DiamondPinning.barrier` (in
+`DiamondPinning.Statements.Critical`). -/
 theorem barrier_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B)
     (hshift : Real.log (B - 1) < criticalPoint μ B) {q : ℝ} (hq : theta B < q)

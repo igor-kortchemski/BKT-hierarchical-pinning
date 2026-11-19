@@ -9,10 +9,4 @@ public import DiamondPinning.Proofs.CriticalMoments
 public import DiamondPinning.Proofs.ReturnProof
 public import DiamondPinning.Proofs.ProductAssembly
 
-/-!
-# Helpers for the frozen statements of `DiamondPinning.Statements.Critical`
-
-Owned helper module for the holes of `DiamondPinning.Statements.Critical`
-(Sections 2–3 of the paper), which imports it. It must not import any
-`DiamondPinning.Statements` module or the Challenge.
--/
+/-! Proofs of the statements of `DiamondPinning.Statements.Critical`. -/

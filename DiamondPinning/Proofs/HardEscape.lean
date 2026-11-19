@@ -129,8 +129,8 @@ lemma centeredHardMean_mono (ν : Measure ℕ) [IsProbabilityMeasure ν] :
     _ ≤ ((2 : ℝ≥0∞) ^ (j + 1))⁻¹ * (hardMean ν (j + 1) - 1) := by
       gcongr
 
-/-- The normalized hard means decrease to `hardFreeEnergy ν`; this proves the
-frozen `hardFreeEnergy_tendsto`. -/
+/-- The normalized hard means decrease to `hardFreeEnergy ν`; this proves
+`DiamondPinning.hardFreeEnergy_tendsto` (in `DiamondPinning.Statements.Escape`). -/
 theorem hardFreeEnergy_tendsto_aux (ν : Measure ℕ) [IsProbabilityMeasure ν] :
     Antitone (fun j : ℕ => ((2 : ℝ≥0∞) ^ j)⁻¹ * hardMean ν j) ∧
       Tendsto (fun j : ℕ => ((2 : ℝ≥0∞) ^ j)⁻¹ * hardMean ν j) atTop
@@ -156,7 +156,7 @@ theorem hardFreeEnergy_tendsto_aux (ν : Measure ℕ) [IsProbabilityMeasure ν] 
 
 
 /-- Every normalized centered hard mean is a lower bound for `hardFreeEnergy ν`;
-this proves the frozen `hardFreeEnergy_ge`. -/
+this proves `DiamondPinning.hardFreeEnergy_ge` (in `DiamondPinning.Statements.Escape`). -/
 theorem hardFreeEnergy_ge_aux (ν : Measure ℕ) [IsProbabilityMeasure ν] (j : ℕ) :
     ((2 : ℝ≥0∞) ^ j)⁻¹ * (hardMean ν j - 1) ≤ hardFreeEnergy ν := by
   have hanti := (hardFreeEnergy_tendsto_aux ν).1
@@ -174,8 +174,8 @@ theorem hardFreeEnergy_ge_aux (ν : Measure ℕ) [IsProbabilityMeasure ν] (j : 
 
 
 /-- Finite initial hard mean gives finite hard means at every height, finite hard
-free energy, and convergence of their real normalizations; this proves the
-frozen `hardFreeEnergy_real`. -/
+free energy, and convergence of their real normalizations; this proves
+`DiamondPinning.hardFreeEnergy_real` (in `DiamondPinning.Statements.Escape`). -/
 theorem hardFreeEnergy_real_aux (ν : Measure ℕ) [IsProbabilityMeasure ν]
     (hfin : hardMean ν 0 ≠ ∞) :
     (∀ j, hardMean ν j ≠ ∞) ∧ hardFreeEnergy ν ≠ ∞ ∧

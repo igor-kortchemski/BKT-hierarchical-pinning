@@ -683,9 +683,10 @@ theorem transform_step_abs {μ : Measure ℝ} [IsProbabilityMeasure μ]
 -- The two compact derivative comparisons and the integral comparison share
 -- one elaboration budget.
 set_option maxHeartbeats 400000 in
-/-- Proves the frozen `defectMean_sub`: the difference of Mellin defects at two
-exponents is Lipschitz in their separation, with constant governed by the
-reference defect and a geometric floor error. -/
+/-- The difference of Mellin defects at two exponents is Lipschitz in their separation, with
+constant governed by the reference defect and a geometric floor error.
+This proves `DiamondPinning.defectMean_sub` (in
+`DiamondPinning.Statements.Scaling`). -/
 theorem defectMean_sub_aux {μ : Measure ℝ} [IsProbabilityMeasure μ]
     (hpos : ∀ᵐ w ∂μ, 0 < w) (hmean : ∫ w, w ∂μ = 1) {B : ℝ} (hB : 2 < B) :
     ∀ q₁ q₂ : ℝ, 0 < q₁ → q₂ < 1 → ∃ C : ℝ, ∀ (h : ℝ) (n : ℕ), 1 ≤ n →
