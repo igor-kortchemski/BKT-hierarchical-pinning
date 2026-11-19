@@ -12,7 +12,8 @@ Lean, with no axioms beyond `propext`, `Classical.choice` and `Quot.sound` and
 no `sorry` outside `Challenge.lean`.**
 Links: [statements](DiamondPinning/Statements/) ·
 [correspondence record](FORMALIZATION_REPORT.md) ·
-[verification](FORMALIZATION_REPORT.md#verification-and-assumptions).
+[verification](FORMALIZATION_REPORT.md#verification-and-assumptions) ·
+[proof outline](docs/PROOF_OUTLINE.md).
 
 The model: for $B>2$, a disorder $W>0$ with $\mathbb E W=1$ and a field $h$,
 $R_0=e^hW$ and $R_{n+1}=(R_n^{(1)}R_n^{(2)}+B-1)/B$ with independent copies;
@@ -49,6 +50,17 @@ neither affects `th:bkt`. Not formalized: the Gaussian example of the
 introduction (it rests on a cited strict-shift theorem). Three routine
 identities of Section 1 are used in proofs but not exported as standalone
 declarations.
+
+## How the proof goes
+
+1. **Free energy and critical point** (Section 2, `lem:basic-bounds`; [`Main.lean`](DiamondPinning/Statements/Main.lean), [`FreeEnergyBounds.lean`](DiamondPinning/Statements/FreeEnergyBounds.lean)). A deterministic floor $R_n\ge b_n\uparrow1$ and two monotone finite-size bounds give $F$, its Lipschitz bound, $h_a\le h_c$ and $F(h_c)=0$.
+2. **Critical moments and returns to one** (Section 2, `prop:criticalmoments`, `lem:barrier`, `th:return`; [`Critical.lean`](DiamondPinning/Statements/Critical.lean)). When $F(h)=0$, $A_n=\mathbb E R_n^\theta\le(B-1)^\theta$; at $h_c>h_a$, a continuation argument for the Mellin transforms $\mathbb E R_n^z$ rules out uniform moments above $\theta$ and gives $\liminf_n A_n=1$.
+3. **The critical product** (Section 3, `th:product`; [`Critical.lean`](DiamondPinning/Statements/Critical.lean)). Recurrences for the tilted logarithmic moments, a Nash-type inequality and the return to one give $\Pi_n\asymp n^2$, $A_n-1\asymp n^{-1}$ and a positive cubic residue $\ell_3=\lim J_n/\Pi_n$.
+4. **Strict transversality** (Section 4, `response:spine-identities`, `response:linear`, `th:response`, `prop:window-moments`; [`Response.lean`](DiamondPinning/Statements/Response.lean), [`Ballot.lean`](DiamondPinning/Statements/Ballot.lean)). A distinguished-leaf (spine) change of measure expresses $\partial_hH_n(h_c)/\Pi_n$ through a random walk, and a ballot estimate shows that it tends to $\kappa\in(0,\infty)$; moments of the contact count control the field in the window $h-h_c=\lambda/N^2$.
+5. **The near-critical scaling limit** (Sections 5–7, `scaling:compactness`, `th:profile-identification`, `cont:continuation`; [`Scaling.lean`](DiamondPinning/Statements/Scaling.lean), [`Profile.lean`](DiamondPinning/Statements/Profile.lean)). At $h_c+\lambda/N^2$ and generation $\lfloor Nt\rfloor$, the rescaled tilted measures converge, in exponential weights, to the explicit profile $f_v(t,x)=a_v(t)e^{-b_v(t)x}$ with $v=\gamma\lambda$, selected by an entire-function argument, up to its pole time $T_v=\pi/\sqrt v$.
+6. **Matching free-energy bounds** (Section 8, `cont:freeenergyupper`, `escape:comparison`, `escape:constant`; [`Escape.lean`](DiamondPinning/Statements/Escape.lean), [`Main.lean`](DiamondPinning/Statements/Main.lean)). Convergence up to $T_v$ gives $F(h_c+\lambda/N^2)\le2^{-N(T_v-o(1))}$; a comparison with the integer-valued hard recursion $Y_{j+1}=(Y_j^{(1)}+Y_j^{(2)}-1)^+$ and a pair-counting bound give the matching lower bound, and $N=\sqrt{\lambda/u}$ yields $K=\pi\log2/\sqrt\gamma$.
+
+A longer outline, with the Lean declarations of each step and the places where the Lean proof takes another route, is in [`docs/PROOF_OUTLINE.md`](docs/PROOF_OUTLINE.md).
 
 ## Where to start
 
