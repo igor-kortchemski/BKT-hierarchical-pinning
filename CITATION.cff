@@ -10,8 +10,9 @@ title: >-
   BKT asymptotics for the quenched free energy of hierarchical pinning:
   Lean 4 formalization
 abstract: >-
-  Lean 4 and Mathlib formalization of the paper "BKT asymptotics for the quenched free energy of hierarchical pinning" (research draft of
-  18 November 2026): all 24 numbered results, including the
+  Lean 4 and Mathlib formalization of the paper "BKT asymptotics for the
+  quenched free energy of hierarchical pinning" (version of 19 November
+  2026): all 24 numbered results, including the
   Berezinskii-Kosterlitz-Thouless asymptotics of the free energy near the
   critical point under a strict shift, with an explicit constant. The Lean
   code was produced by AI models (see README.md and FORMALIZATION_REPORT.md).
@@ -37,7 +38,8 @@ references:
         family-names: Kortchemski
     year: 2026
     notes: >-
-      Research draft of 18 November 2026, not yet distributed, then titled
-      "BKT asymptotics for disordered pinning on the diamond hierarchical
+      Version of 19 November 2026, not yet distributed. The formalization
+      was developed against the draft of 18 November 2026, then titled "BKT
+      asymptotics for disordered pinning on the diamond hierarchical
       lattice". arXiv
       identifier: AUTHOR-DECISION: arXiv identifier once the paper is posted.

@@ -8,11 +8,15 @@ is a completion record for a paper-companion formalization, not a log of every
 Lean edit.
 
 - **Paper and version:** *BKT asymptotics for the quenched free energy of
-  hierarchical pinning* by Igor Kortchemski, research draft of 18 November 2026
-  (citation and presentation revision; SHA-256 of its main TeX file
+  hierarchical pinning* by Igor Kortchemski, version of 19 November 2026
+  (SHA-256 of its TeX file
+  `6d66491d1e04453306f33eccc523802059cdb314923593469f1b99ac96feafa4`). The
+  formalization was developed against the research draft of 18 November 2026
+  (SHA-256 of its main TeX file
   `8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c`), then
   titled *BKT asymptotics for disordered pinning on the diamond hierarchical
-  lattice*; the paper was retitled afterwards.
+  lattice*; the differences between the two versions are listed under
+  [From the formalized draft to the final version](#from-the-formalized-draft-to-the-final-version).
   The paper has eight sections; results are cited below by section and by
   the paper's labels (such as `th:bkt`).
 - **Publication status of the paper:** not yet distributed (19 November 2026);
@@ -131,7 +135,7 @@ renaming of helper lemmas are not included.
 - **Classification:** Error in the paper for the unbounded display; imprecision for the kernel hypotheses.
 - **Mathematical effect:** Corrected local domains. Every application in the paper uses a compact weight range, so no downstream statement changes.
 - **Paper argument checked:** Yes on the domain actually used; the false unbounded strengthening is not claimed.
-- **Manuscript action:** A correction (display) and a clarification (kernel hypotheses) are recommended for the manuscript.
+- **Manuscript action:** Incorporated in the final version of 19 November 2026: the weights are restricted to $0\le s\le N\log2$ (equivalently $q_N(s)\ge0$) in `scaling:measure` and `scaling:unshifted`, the transform-difference estimate is stated for $s$ in a compact set, and the kernel comparison assumes $n\ge1$ and a Borel measurable $F$ differentiable in a neighbourhood of $1$, as in Lean.
 - **Unresolved obstruction, if any:** None.
 
 ### D5 — Matrix growth with measurable coefficients and a coefficient-dependent constant
@@ -142,7 +146,7 @@ renaming of helper lemmas are not included.
 - **Classification:** Error in the paper under the uniform-constant reading; imprecision about measurability.
 - **Mathematical effect:** Corrected dependence $C_{\varepsilon,T,w}$ and an explicit existence/uniqueness companion theorem; no change to the application with one fixed coefficient.
 - **Paper argument checked:** Yes after the repair, including arbitrary endpoint values of $w$ and genuine integrability on the full interval.
-- **Manuscript action:** A correction is recommended for the manuscript.
+- **Manuscript action:** Incorporated in the final version of 19 November 2026: `lem:entire-bounds` fixes a measurable $w$ with $w$ and $1/w$ bounded, normalizes $M(0,z)=I$, and names the constant $C_{\varepsilon,T,w}$, as in Lean.
 - **Unresolved obstruction, if any:** None.
 
 ### D6 — Half-plane Phragmén–Lindelöf through Mathlib
@@ -296,15 +300,40 @@ Section 5 that is false for unbounded weights $s$ (D4), and the reading of the
 matrix-growth constant of `lem:entire-bounds` (Section 6) as uniform over the
 coefficient $w$ (D5). In both cases the intended, repaired reading is proved
 and is sufficient for every application; neither affects Theorem `th:bkt` or
-another numbered conclusion. Since the paper has not been distributed, both
-are recommended corrections for the manuscript; the formalized version of the
-draft was not edited.
+another numbered conclusion. Both corrections are incorporated in the final
+version of 19 November 2026.
 
 No other numbered result was found to be false within the reviewed scope. No
 error in a cited work was confirmed within that scope, so there is no
 cited-work erratum to report. Expository ambiguities and missing proof
 justifications are distinguished from mathematical proof alternatives in
 D1–D18.
+
+## From the formalized draft to the final version
+
+The formalization was developed against the research draft of 18 November
+2026; this record cites the final version of 19 November 2026. The two were
+compared mechanically on all theorem-like environments (24 in each) and all
+labelled displays (92 in each):
+
+- 20 of the 24 numbered results are unchanged, word for word.
+- `response:ballot`: the quantifiers "for some $b\ge0$ and $\eta,\delta>0$"
+  moved into the hypothesis; same content, as in Lean.
+- `scaling:mellin-calculus`: $n\ge1$, a Borel measurable $F$ and
+  differentiability in a neighbourhood of $1$ are now assumed, and the
+  transform-difference estimate is stated for $s$ in a compact set; the
+  displays `scaling:measure` and `scaling:unshifted` restrict the weights to
+  $0\le s\le N\log2$. These are the Lean hypotheses (correction D4).
+- `lem:entire-bounds`: a measurable $w$ with $w$ and $1/w$ bounded,
+  $M(0,z)=I$, and the constant $C_{\varepsilon,T,w}$, as in Lean (correction
+  D5).
+- `escape:pairs`, with the displays `escape:first-pair-moment` and
+  `escape:pair-tail`: the band moment $M_I$ is renamed $W$; same content.
+
+No statement of the final version goes beyond its Lean counterpart. The
+paper's prose and proofs also changed elsewhere (about 600 lines); the
+proof-correspondence column above was established against the draft of
+18 November 2026 and has not been re-reviewed against these changes.
 
 ## Verification and assumptions
 

@@ -7,8 +7,8 @@ version: "v0.4"
 project:
   name: "BKT asymptotics for the quenched free energy of hierarchical pinning"
   description: >-
-    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for the quenched free energy of hierarchical pinning" (research draft of
-    18 November 2026), except the Gaussian example of its introduction. For
+    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for the quenched free energy of hierarchical pinning" (version of
+    19 November 2026), except the Gaussian example of its introduction. For
     B > 2, a disorder W > 0 with E W = 1 and a field h, the partition functions
     on the diamond hierarchical lattice satisfy R_0 = e^h W and
     R_{n+1} = (R_n R_n' + B - 1) / B with independent copies; the free energy
@@ -51,15 +51,20 @@ sources:
     authors:
       - "Igor Kortchemski"
     id: "AUTHOR-DECISION: arXiv identifier of the paper (with version) once it is posted"
-    type: "article (research draft of 18 November 2026, not yet distributed)"
+    type: "article (version of 19 November 2026, not yet distributed)"
     location: "AUTHOR-DECISION: stable URL of the paper once it is public"
     relationship: "formalizes"
     note: >-
-      The formalized version is the research draft of 18 November 2026
-      (citation and presentation revision; SHA-256 of its main TeX file
-      8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c), then
-      titled "BKT asymptotics for disordered pinning on the diamond
-      hierarchical lattice"; the paper was retitled afterwards. The
+      The cited version is that of 19 November 2026 (SHA-256 of its TeX file
+      6d66491d1e04453306f33eccc523802059cdb314923593469f1b99ac96feafa4). The formalization was
+      developed against the research draft of 18 November 2026 (SHA-256 of
+      its main TeX file 8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c),
+      then titled "BKT asymptotics for disordered pinning on the diamond
+      hierarchical lattice". Between the two versions, 20 of the 24 numbered
+      results are unchanged; the other four changed in wording, in notation,
+      or by incorporating the two corrections found by the formalization, and
+      each matches its Lean statement (FORMALIZATION_REPORT.md, "From the
+      formalized draft to the final version"). The
       paper's author is the responsible maintainer of this formalization,
       decided its scope, and delegated the approval of statements to AI
       consultations.
@@ -150,10 +155,10 @@ fidelity:
     defined by limUnder and sSup and characterized by proved theorems (D2);
     residues as parameters of intermediate interfaces, discharged in the main
     theorem (D3); redundant hypotheses kept in lem:barrier (D17). Corrections
-    to the paper: a Mellin-calculus display of Section 5 holds only on
-    compact weight ranges (D4) and the matrix-growth constant of
-    lem:entire-bounds depends on the coefficient (D5); neither affects the
-    main theorem. Missing justifications supplied: differentiation under the
+    found in the draft of 18 November 2026 and incorporated in the cited
+    version: a Mellin-calculus display of Section 5 holds only on compact
+    weight ranges (D4) and the matrix-growth constant of lem:entire-bounds
+    depends on the coefficient (D5); neither affects the main theorem. Missing justifications supplied: differentiation under the
     expectation (D7) and local repairs in compactness, profile and
     continuation (D18). Alternative proof routes, where the Lean proof
     bypasses the written argument: Phragmen-Lindelof through Mathlib's
@@ -180,11 +185,13 @@ review:
     Sonnet 5.5) and response:linear and prop:contact-moments (begun by Kimi
     K3.1 Pro, completed by Claude Opus 5.5, re-audited by Kimi K3.1 Pro). A
     later cleanup of proof modules was checked by build, statement and axiom
-    checks only. Checks of 19 November 2026 on the development tree: build
-    passed; only propext, Classical.choice and Quot.sound for all 72
-    statement theorems; sandboxed lake comparator accepted by the Lean and
-    NanoDa kernels (run before the final proof cleanup); --paranoid
-    unfinished. These checks are to be repeated on the published commit.
+    checks only. Checks of 19 November 2026: build passed; only propext,
+    Classical.choice and Quot.sound for all 72 statement theorems (on the
+    development tree after the cleanup); at commit eafa34c of this
+    repository (later commits change only documentation), the sandboxed
+    lake comparator was accepted by the NanoDa and Lean kernels, and
+    lake comparator --paranoid by NanoDa, Lean's paranoid kernel, Lean4Lean,
+    con-leche, con-ron and Lean's kernel.
 
 alignment:
   namespace: "DiamondPinning"

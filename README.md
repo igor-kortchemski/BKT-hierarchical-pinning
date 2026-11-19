@@ -5,8 +5,8 @@ sandboxed `lake comparator` (including `--paranoid`: NanoDa, Lean4Lean,
 con-leche, con-ron and Lean's kernels) passed, checked locally on a Linux
 machine (see [Verify](#verify)). No CI yet.*
 
-Lean 4 and Mathlib formalization of *BKT asymptotics for the quenched free energy of hierarchical pinning* by Igor Kortchemski (research draft of
-18 November 2026, not yet publicly available; no arXiv identifier).
+Lean 4 and Mathlib formalization of *BKT asymptotics for the quenched free energy of hierarchical pinning* by Igor Kortchemski (version of
+19 November 2026, not yet publicly available; no arXiv identifier).
 **All 24 numbered results of the paper within the declared scope are proved in
 Lean, with no axioms beyond `propext`, `Classical.choice` and `Quot.sound` and
 no `sorry` outside `Challenge.lean`.**
@@ -42,8 +42,8 @@ All 24 numbered results are matched in the
 [correspondence record](FORMALIZATION_REPORT.md#result-correspondence), with
 their proof routes. Material choices: the hard free energy $F_d$ takes values
 in $[0,\infty]$; intermediate interfaces take the residues $\ell_3,\kappa$ as
-parameters, discharged in `bkt`. Two localized statements of the draft are
-corrected (see
+parameters, discharged in `bkt`. Two localized statements of an earlier draft
+were corrected, and the corrections are part of the cited version (see
 [Corrections to the paper](FORMALIZATION_REPORT.md#corrections-to-the-paper));
 neither affects `th:bkt`. Not formalized: the Gaussian example of the
 introduction (it rests on a cited strict-shift theorem). Three routine
@@ -90,10 +90,9 @@ On Linux with `bwrap` installed and `nanoda_bin` on `PATH`, run
 the six theorems of `Challenge.lean` (`bkt` and the five companion statements)
 are proved in `Solution` with the same statements and definitions, with only
 the three permitted axioms, and has both Lean's kernel and NanoDa check the
-proofs. On 19 November 2026 it accepted the development tree, before a final
-cleanup of proof modules; after that cleanup the build, statement and axiom
-checks of all 72 statement theorems passed again. These checks have not yet
-been repeated on this repository's commit; see the
+proofs. On 19 November 2026 it accepted this repository at commit `eafa34c`
+(later commits change only documentation), and `lake comparator --paranoid`
+was accepted by every bundled checker; see the
 [verification record](FORMALIZATION_REPORT.md#verification-and-assumptions).
 
 ## How it was made
