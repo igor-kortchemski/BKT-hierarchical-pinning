@@ -86,7 +86,7 @@ Install Lean with the
 then:
 
 ```sh
-git clone <REPOSITORY-URL> BKT-hierarchical-pinning
+git clone https://github.com/igor-kortchemski/BKT-hierarchical-pinning
 cd BKT-hierarchical-pinning
 lake exe cache get
 lake build

@@ -21,7 +21,7 @@ authors:
     family-names: Kortchemski
 version: 0.1.0
 license: "Apache-2.0"
-repository-code: "AUTHOR-DECISION: public repository URL"
+repository-code: "https://github.com/igor-kortchemski/BKT-hierarchical-pinning"
 keywords:
   - Lean 4
   - Mathlib
