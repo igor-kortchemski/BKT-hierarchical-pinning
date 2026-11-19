@@ -7,10 +7,12 @@ paper and substantive differences between the written and formal arguments. It
 is a completion record for a paper-companion formalization, not a log of every
 Lean edit.
 
-- **Paper and version:** *BKT asymptotics for disordered pinning on the
-  diamond hierarchical lattice* by Igor Kortchemski, research draft of
-  18 November 2026 (citation and presentation revision; SHA-256 of its main
-  TeX file `8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c`).
+- **Paper and version:** *BKT asymptotics for the quenched free energy of
+  hierarchical pinning* by Igor Kortchemski, research draft of 18 November 2026
+  (citation and presentation revision; SHA-256 of its main TeX file
+  `8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c`), then
+  titled *BKT asymptotics for disordered pinning on the diamond hierarchical
+  lattice*; the paper was retitled afterwards.
   The paper has eight sections; results are cited below by section and by
   the paper's labels (such as `th:bkt`).
 - **Publication status of the paper:** not yet distributed (19 November 2026);

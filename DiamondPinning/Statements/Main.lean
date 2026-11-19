@@ -10,8 +10,8 @@ public import Mathlib.Analysis.SpecialFunctions.Sqrt
 
 /-! # The main theorem and basic free-energy facts
 
-The main theorem `th:bkt` of *BKT asymptotics for disordered pinning on the
-diamond hierarchical lattice* and the parts of `lem:basic-bounds` that give
+The main theorem `th:bkt` of *BKT asymptotics for the quenched free energy of
+hierarchical pinning* and the parts of `lem:basic-bounds` that give
 the definitions of `DiamondPinning.Model.Defs` their meaning: the
 expectations involved are integrals of integrable functions, the limit
 defining `F(h)` exists, and `h_c` is the greatest zero of `F`.

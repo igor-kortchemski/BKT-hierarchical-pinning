@@ -11,7 +11,7 @@ public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 public import Mathlib.Analysis.SpecialFunctions.Sqrt
 
 /-!
-# BKT asymptotics for disordered pinning on the diamond hierarchical lattice
+# BKT asymptotics for the quenched free energy of hierarchical pinning
 
 Statement of the main theorem (`th:bkt`) and of parts of the basic bounds
 (`lem:basic-bounds`) of the paper, with the definitions they use.

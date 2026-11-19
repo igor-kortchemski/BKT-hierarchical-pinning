@@ -5,10 +5,9 @@
 version: "v0.4"
 
 project:
-  name: "BKT asymptotics for disordered pinning on the diamond hierarchical lattice"
+  name: "BKT asymptotics for the quenched free energy of hierarchical pinning"
   description: >-
-    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for
-    disordered pinning on the diamond hierarchical lattice" (research draft of
+    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for the quenched free energy of hierarchical pinning" (research draft of
     18 November 2026), except the Gaussian example of its introduction. For
     B > 2, a disorder W > 0 with E W = 1 and a field h, the partition functions
     on the diamond hierarchical lattice satisfy R_0 = e^h W and
@@ -48,7 +47,7 @@ classification:
   msc2020: ["60K35", "82B44", "60K37", "82B27"]
 
 sources:
-  - title: "BKT asymptotics for disordered pinning on the diamond hierarchical lattice"
+  - title: "BKT asymptotics for the quenched free energy of hierarchical pinning"
     authors:
       - "Igor Kortchemski"
     id: "AUTHOR-DECISION: arXiv identifier of the paper (with version) once it is posted"
@@ -58,7 +57,9 @@ sources:
     note: >-
       The formalized version is the research draft of 18 November 2026
       (citation and presentation revision; SHA-256 of its main TeX file
-      8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c). The
+      8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c), then
+      titled "BKT asymptotics for disordered pinning on the diamond
+      hierarchical lattice"; the paper was retitled afterwards. The
       paper's author is the responsible maintainer of this formalization,
       decided its scope, and delegated the approval of statements to AI
       consultations.

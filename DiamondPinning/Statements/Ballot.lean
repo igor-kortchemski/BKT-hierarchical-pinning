@@ -9,7 +9,7 @@ public import Mathlib.Probability.Independence.Basic
 # Passage estimate
 
 Statement of the passage estimate `response:ballot` from
-*BKT asymptotics for disordered pinning on the diamond hierarchical lattice*.
+*BKT asymptotics for the quenched free energy of hierarchical pinning*.
 -/
 
 @[expose] public section

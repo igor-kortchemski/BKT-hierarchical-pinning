@@ -9,8 +9,8 @@ public import Mathlib.Topology.Basic
 /-!
 # The diamond pinning model: definitions
 
-Definitions of *BKT asymptotics for disordered pinning on the diamond
-hierarchical lattice* (research draft of 18 November 2026), Section 1.1,
+Definitions of *BKT asymptotics for the quenched free energy of hierarchical
+pinning* (research draft of 18 November 2026), Section 1.1,
 at the level of laws.
 
 * `lawR μ B h n` is the law of `R_n(h)`: `R_0(h) = e^h W` with `W ∼ μ`, and

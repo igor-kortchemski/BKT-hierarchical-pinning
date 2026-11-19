@@ -1,12 +1,11 @@
-# BKT asymptotics for disordered pinning on the diamond hierarchical lattice
+# BKT asymptotics for the quenched free energy of hierarchical pinning
 
 *Status, 19 November 2026, at commit `eafa34c`: build, axiom check and
 sandboxed `lake comparator` (including `--paranoid`: NanoDa, Lean4Lean,
 con-leche, con-ron and Lean's kernels) passed, checked locally on a Linux
 machine (see [Verify](#verify)). No CI yet.*
 
-Lean 4 and Mathlib formalization of *BKT asymptotics for disordered pinning on
-the diamond hierarchical lattice* by Igor Kortchemski (research draft of
+Lean 4 and Mathlib formalization of *BKT asymptotics for the quenched free energy of hierarchical pinning* by Igor Kortchemski (research draft of
 18 November 2026, not yet publicly available; no arXiv identifier).
 **All 24 numbered results of the paper within the declared scope are proved in
 Lean, with no axioms beyond `propext`, `Classical.choice` and `Quot.sound` and
@@ -75,8 +74,8 @@ Install Lean with the
 then:
 
 ```sh
-git clone <REPOSITORY-URL> BKT-diamond
-cd BKT-diamond
+git clone <REPOSITORY-URL> BKT-hierarchical-pinning
+cd BKT-hierarchical-pinning
 lake exe cache get
 lake build
 ```
