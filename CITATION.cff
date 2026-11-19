@@ -1,0 +1,43 @@
+# Values beginning with "AUTHOR-DECISION:" are placeholders for decisions of
+# the author; replace them before publication (the license must then be an
+# SPDX identifier for this file to validate).
+cff-version: 1.2.0
+message: >-
+  If you use this formalization, please cite it as below, and cite the paper
+  it formalizes for the mathematics.
+type: software
+title: >-
+  BKT asymptotics for disordered pinning on the diamond hierarchical lattice:
+  Lean 4 formalization
+abstract: >-
+  Lean 4 and Mathlib formalization of the paper "BKT asymptotics for
+  disordered pinning on the diamond hierarchical lattice" (research draft of
+  18 November 2026): all 24 numbered results, including the
+  Berezinskii-Kosterlitz-Thouless asymptotics of the free energy near the
+  critical point under a strict shift, with an explicit constant. The Lean
+  code was produced by AI models (see README.md and FORMALIZATION_REPORT.md).
+authors:
+  - given-names: Igor
+    family-names: Kortchemski
+version: 0.1.0
+license: "AUTHOR-DECISION: SPDX license identifier"
+repository-code: "AUTHOR-DECISION: public repository URL"
+keywords:
+  - Lean 4
+  - Mathlib
+  - formalization
+  - disordered pinning
+  - diamond hierarchical lattice
+  - BKT transition
+references:
+  - type: unpublished
+    title: >-
+      BKT asymptotics for disordered pinning on the diamond hierarchical
+      lattice
+    authors:
+      - given-names: Igor
+        family-names: Kortchemski
+    year: 2026
+    notes: >-
+      Research draft of 18 November 2026, not yet distributed. arXiv
+      identifier: AUTHOR-DECISION: arXiv identifier once the paper is posted.

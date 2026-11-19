@@ -1,0 +1,283 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml v0.4.
+# Values beginning with "AUTHOR-DECISION:" are not values: they mark a decision
+# of the author that must be made, and replaced, before submission.
+version: "v0.4"
+
+project:
+  name: "BKT asymptotics for disordered pinning on the diamond hierarchical lattice"
+  description: >-
+    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for
+    disordered pinning on the diamond hierarchical lattice" (research draft of
+    18 November 2026), except the Gaussian example of its introduction. For
+    B > 2, a disorder W > 0 with E W = 1 and a field h, the partition functions
+    on the diamond hierarchical lattice satisfy R_0 = e^h W and
+    R_{n+1} = (R_n R_n' + B - 1) / B with independent copies; the free energy
+    is F(h) = lim 2^{-n} E log R_n(h) and h_c = sup {h : F(h) = 0}. The main
+    theorem states that if h_c exceeds the annealed critical point
+    h_a = log(B - 1), then with theta = log 2 / log B, a = log B and
+    Pi_n = prod_{j<n} E R_j(h_c)^theta, the residues
+    l_3 = lim E[R_n^theta (log R_n - a)^3] / Pi_n and
+    kappa = lim d/dh E[R_n(h)^theta (log R_n(h) - a)] at h_c, divided by Pi_n,
+    exist and are positive, Pi_n ~ 3 a^3 n^2 / (2 l_3), and
+    sqrt(u) log F(h_c + u) -> -pi log 2 / sqrt(gamma) as u decreases to 0,
+    with gamma = 3 a^2 kappa / (2 l_3): the Berezinskii-Kosterlitz-Thouless
+    law with explicit constant. All 24 numbered results of the paper are
+    proved, including the basic bounds, critical moments, return to one, the
+    critical product, the field response, the scaling limit and its
+    identification with an explicit profile, continuation before the pole,
+    and the upper and lower free-energy bounds through a hard integer-valued
+    recursion. Three routine identities of Section 1 are used but not exported
+    as standalone declarations.
+  # The Lean proofs were produced by AI models (see automation); the paper's
+  # author is the person responsible for this formalization.
+  # Proposed: the author line remains the author's decision.
+  authors:
+    - "Igor Kortchemski"
+  license: "AUTHOR-DECISION: SPDX license identifier, with a matching root LICENSE file"
+  responsible_maintainers:
+    - "Igor Kortchemski"
+
+classification:
+  # Proposed classification, to be confirmed by the author.
+  arxiv: ["math.PR", "math-ph"]
+  # Proposed MSC 2020: 60K35 interacting random processes / statistical
+  # mechanics type models; 82B44 disordered systems in equilibrium statistical
+  # mechanics; 60K37 processes in random environments; 82B27 critical
+  # phenomena in equilibrium statistical mechanics.
+  msc2020: ["60K35", "82B44", "60K37", "82B27"]
+
+sources:
+  - title: "BKT asymptotics for disordered pinning on the diamond hierarchical lattice"
+    authors:
+      - "Igor Kortchemski"
+    id: "AUTHOR-DECISION: arXiv identifier of the paper (with version) once it is posted"
+    type: "article (research draft of 18 November 2026, not yet distributed)"
+    location: "AUTHOR-DECISION: stable URL of the paper once it is public"
+    relationship: "formalizes"
+    note: >-
+      The formalized version is the research draft of 18 November 2026
+      (citation and presentation revision; SHA-256 of its main TeX file
+      8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c). The
+      paper's author is the responsible maintainer of this formalization,
+      decided its scope, and delegated the approval of statements to AI
+      consultations.
+    license: "AUTHOR-DECISION: license of the paper, if any, once it is posted"
+    author_endorsement: "participated"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Formalized: all 24 numbered results of Sections 1 to 8 (theorems,
+    propositions and lemmas), with the definitions of the model constructed
+    from the disorder law (law of R_n, free energy as a proved limit, critical
+    point as a proved greatest zero). Not formalized: the Gaussian
+    (lognormal) example of the introduction, which rests on a cited
+    strict-shift theorem. Partially covered: three routine identities of
+    Section 1 (the recursion for X_n = log R_n / log B, the X_n-forms of the
+    tilted moments, and two pole-scale identities), which appear only inside
+    proofs or in another normalization. Changed statements: the hard free
+    energy F_d takes values in [0, infinity] (a real-valued version is proved
+    when the initial mean is finite); one display of the Mellin calculus of
+    Section 5 is proved on compact weight ranges only (it is false for
+    unbounded weights); the matrix-growth constant of lem:entire-bounds may
+    depend on the coefficient w, which is assumed measurable; several limsup
+    and liminf bounds are stated in eventual form and rates with Theta/O.
+    Intermediate interfaces of Sections 5-8 take the residues l_3 and kappa as
+    parameters with their defining limits; the main theorem discharges them.
+  # Proof development, excluding the six deliberate sorry of Challenge.lean.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  # Axiom closure of every theorem of DiamondPinning/Statements (72 theorems,
+  # including DiamondPinning.bkt); the project declares no axiom of its own.
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "Claude Opus 5.5"
+        - "Claude Sonnet 5.5"
+        - "GPT-6.2 Sol"
+        - "GPT-6 Luna"
+        - "GPT-6.2 Astra"
+        - "Kimi K3.1 Pro"
+      framework: "Claude Code (orchestration and Claude workers); Codex CLI (GPT workers)"
+      tool_setup: >-
+        Claude Code running Claude Opus 5.5 orchestrated the work: inventory of
+        the paper's results and dependency graph, shared definitions and main
+        statements, integration and assembly proofs, and the build,
+        statement-preservation and axiom checks. Isolated background workers
+        wrote the proofs in owned helper modules against verbatim statements
+        fixed beforehand: Kimi K3.1 Pro (effort high), GPT-6.2 Sol (medium),
+        GPT-6 Luna (xhigh) and Claude Opus 5.5 (high or xhigh). GPT-6.2 Astra
+        did preliminary research on the paper's arguments (audited by Claude
+        Opus 5.5) and read-only consultations on interface and statement
+        decisions. Claude Sonnet 5.5 wrote a proof blueprint, reviewed
+        statements and did blind read-backs. Read-only re-audits of each proof
+        against the paper were done by Claude Sonnet 5.5 or Kimi K3.1 Pro.
+        Lean 4 with Lake, Mathlib, and the sandboxed lake comparator with the
+        NanoDa kernel on a Linux virtual machine.
+      cost:
+        wall_time: "about 13 hours elapsed (evening of 18 November to morning of 19 November 2026), many workers in parallel"
+        spend_usd: "not tracked"
+        hardware: "local macOS computers for orchestration and builds; models through their providers' services; a Linux virtual machine for Comparator"
+      prompting_notes: >-
+        Each proof worker received the paper, the fixed Lean statement
+        verbatim, owned files it alone could edit, a build budget and a time
+        limit; integration only replaced each fixed statement's hole by a call
+        to a proved helper. Re-auditors received the paper, the statement and
+        the proof read-only, with instructions to check the route against the
+        paper and to look for totalization artifacts, integrability,
+        positivity and quantifier-order problems.
+  spend_usd: "not tracked"
+  notes: >-
+    All Lean code (definitions, statements and proofs) was written by AI
+    models. The paper's author set the scope (whole paper, Gaussian example
+    excluded), answered questions about the paper, and delegated the remaining
+    decisions, including the approval of each group of statements, to
+    read-only consultations of GPT-6.2 Astra, whose recommendations were
+    adopted. Statements were fixed in six groups before their proofs were
+    written and checked unchanged at completion. Publication, licensing and
+    submission were not delegated.
+
+fidelity:
+  divergences: >-
+    Recorded in FORMALIZATION_REPORT.md (D1-D18). Convention and encoding:
+    extended-valued hard free energy F_d (D1); free energy and critical point
+    defined by limUnder and sSup and characterized by proved theorems (D2);
+    residues as parameters of intermediate interfaces, discharged in the main
+    theorem (D3); redundant hypotheses kept in lem:barrier (D17). Corrections
+    to the paper: a Mellin-calculus display of Section 5 holds only on
+    compact weight ranges (D4) and the matrix-growth constant of
+    lem:entire-bounds depends on the coefficient (D5); neither affects the
+    main theorem. Missing justifications supplied: differentiation under the
+    expectation (D7) and local repairs in compactness, profile and
+    continuation (D18). Alternative proof routes, where the Lean proof
+    bypasses the written argument: Phragmen-Lindelof through Mathlib's
+    half-plane theorem (D6), Harris's inequality proved from scratch (D8),
+    spine identities by a master induction (D9), drift summability from the
+    critical moments (D10), eq:Hsmall by floor-centred corrections (D11),
+    critical-product divergence by a Nash estimate (D12), ordered pair count
+    in escape:pairs (D13), compactness by small-s expansion (D14), the 7/2
+    window moment by weighted AM-GM (D15), and profile identification through
+    characteristic functions (D16).
+
+review:
+  status: "AI-audited; no human review of the Lean statements or proofs"
+  reviewers:
+    - "none"
+  notes: >-
+    No human line-by-line review of the Lean statements or proofs is claimed.
+    Automated reviews: each group of statements was reviewed against the paper
+    by a model that did not write it (Claude Sonnet 5.5, or GPT-6.2 Astra for
+    the last group), the main statements also by GPT-6.2 Sol and by blind
+    read-backs; every proof was re-audited read-only against the paper by a
+    model other than its author, of a different family except for the five
+    remaining parts of lem:basic-bounds (Claude Opus 5.5, re-audited by Claude
+    Sonnet 5.5) and response:linear and prop:contact-moments (begun by Kimi
+    K3.1 Pro, completed by Claude Opus 5.5, re-audited by Kimi K3.1 Pro). A
+    later cleanup of proof modules was checked by build, statement and axiom
+    checks only. Checks of 19 November 2026 on the development tree: build
+    passed; only propext, Classical.choice and Quot.sound for all 72
+    statement theorems; sandboxed lake comparator accepted by the Lean and
+    NanoDa kernels (run before the final proof cleanup); --paranoid
+    unfinished. These checks are to be repeated on the published commit.
+
+alignment:
+  namespace: "DiamondPinning"
+  statements:
+    - source: "Theorem th:bkt (Section 1)"
+      lean: "DiamondPinning.bkt"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: >-
+        All conclusions T1-T5 under h_c > h_a, stated existentially in l_3,
+        kappa, gamma; also proves differentiability of each H_n at h_c and
+        F(h_c + u) > 0 for u > 0, which the paper uses implicitly. Compared by
+        Comparator against Challenge.lean.
+    - source: "Lemma lem:basic-bounds (Section 2): integrability of R_n"
+      lean: "DiamondPinning.integrable_lawR"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: "E R_n(h) < infinity for every h and n. Compared by Comparator."
+    - source: "Lemma lem:basic-bounds (Section 2): tilted logarithmic moments"
+      lean: "DiamondPinning.integrable_tiltedLogPower"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: "E[R_n^theta |log R_n|^q] < infinity for all n >= 0 and real q >= 0. Compared by Comparator."
+    - source: "Lemma lem:basic-bounds (Section 2): integrability of log R_n"
+      lean: "DiamondPinning.integrable_log_lawR"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: "For n >= 1; no logarithmic moment of W is assumed. Compared by Comparator."
+    - source: "Lemma lem:basic-bounds (Section 2): existence of the free energy"
+      lean: "DiamondPinning.freeEnergy_tendsto"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: "2^{-n} E log R_n(h) converges to freeEnergy, so the limUnder definition is the true limit. Compared by Comparator."
+    - source: "Lemma lem:basic-bounds (Section 2): the critical point"
+      lean: "DiamondPinning.criticalPoint_isGreatest"
+      module: "DiamondPinning.Statements.Main"
+      status: "proved"
+      note: "h_c is the greatest zero of F, so the sSup definition is genuine. Compared by Comparator."
+    - source: "Lemma lem:basic-bounds (Section 2): floor, finite-size bounds, F >= 0, increments, h_a <= h_c"
+      lean: "DiamondPinning.floor_bounds, DiamondPinning.finiteSize_bounds, DiamondPinning.freeEnergy_nonneg, DiamondPinning.freeEnergy_increment, DiamondPinning.logShift_le_criticalPoint"
+      module: "DiamondPinning.Statements.FreeEnergyBounds"
+      status: "proved"
+      note: "Remaining parts of the lemma."
+    - source: "Proposition prop:criticalmoments (Section 2)"
+      lean: "DiamondPinning.criticalMoments"
+      module: "DiamondPinning.Statements.Critical"
+      status: "proved"
+      note: "Constant depending only on B, chosen before the disorder law."
+    - source: "Theorem th:return (Section 2)"
+      lean: "DiamondPinning.returns_to_one"
+      module: "DiamondPinning.Statements.Critical"
+      status: "proved"
+      note: "liminf E R_n(h_c)^theta = 1, stated as an infinitely-often upper bound and an eventual lower bound for every epsilon > 0."
+    - source: "Theorem th:product (Section 3)"
+      lean: "DiamondPinning.criticalProduct, DiamondPinning.criticalProduct_Hsmall"
+      module: "DiamondPinning.Statements.Critical"
+      status: "proved"
+      note: "Rates with Theta and O, including A_n > 1 eventually; alternative proof of P1 by a Nash estimate (D12) and of eq:Hsmall (D11)."
+    - source: "Theorem th:response (Section 4)"
+      lean: "DiamondPinning.response_transversality"
+      module: "DiamondPinning.Statements.Response"
+      status: "proved"
+      note: "Residue kappa in (0, infinity) and E_n of order n^2."
+    - source: "scaling:compactness (Section 5)"
+      lean: "DiamondPinning.scaling_compactness"
+      module: "DiamondPinning.Statements.Scaling"
+      status: "proved"
+      note: "Residues as parameters (D3); entrance data packaged in Model.Scaling.EntranceData; alternative derivations (D14)."
+    - source: "cont:continuation (Section 5, proved in Section 7)"
+      lean: "DiamondPinning.continuation"
+      module: "DiamondPinning.Statements.Scaling"
+      status: "proved"
+      note: "On compact subintervals before the pole time; residues as parameters (D3)."
+    - source: "Theorem th:profile-identification (Section 6)"
+      lean: "DiamondPinning.profile_identification, DiamondPinning.exact_critical, DiamondPinning.gamma_eq_limit"
+      module: "DiamondPinning.Statements.Profile"
+      status: "proved"
+      note: "Final identification step through characteristic functions (D16)."
+    - source: "Lemma lem:entire-bounds (Section 6)"
+      lean: "DiamondPinning.matrix_integral_growth_bound, DiamondPinning.rightHalfPlane_bounded_of_minimal_exponential_type, DiamondPinning.leftHalfPlane_bounded_of_minimal_exponential_type"
+      module: "DiamondPinning.Statements.EntireBounds"
+      status: "adapted"
+      note: "Corrected: measurable coefficient and a constant depending on it (D5); E2 through Mathlib's half-plane theorem (D6)."
+    - source: "cont:freeenergyupper and escape:constant (Section 8)"
+      lean: "DiamondPinning.freeEnergy_upper, DiamondPinning.escape_constant"
+      module: "DiamondPinning.Statements.Escape"
+      status: "proved"
+      note: "Upper and lower free-energy asymptotics in eventual form; residues as parameters (D3)."
+    - source: "escape:pairs, escape:band-exit, escape:comparison (Section 8)"
+      lean: "DiamondPinning.escape_pairs, DiamondPinning.escape_bandExit, DiamondPinning.escape_comparison"
+      module: "DiamondPinning.Statements.Escape"
+      status: "proved"
+      note: "Hard free energy in [0, infinity] (D1); ordered pair count (D13)."
+
+acknowledgements: >-
+  Built on Lean 4 and Mathlib. Verified with Lake's sandboxed comparator, the
+  NanoDa kernel and bubblewrap. Produced with Claude Code and the Codex CLI.
