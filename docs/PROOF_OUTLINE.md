@@ -1,7 +1,9 @@
 # Proof outline
 
 This outline follows *BKT asymptotics for the quenched free energy of
-hierarchical pinning* by Igor Kortchemski (version of 19 November 2026).
+hierarchical pinning* (ChatGPT, directed by Igor Kortchemski),
+[Hexagon preprint `2611.00654v1`](https://hexagonmath.org/2611.00654v1)
+of 19 November 2026.
 Labels such as `th:product` are the paper's; Lean links point to the proved
 statements in [`DiamondPinning/Statements/`](../DiamondPinning/Statements/),
 and D-entries to the

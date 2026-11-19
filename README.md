@@ -5,8 +5,11 @@ sandboxed `lake comparator` (including `--paranoid`: NanoDa, Lean4Lean,
 con-leche, con-ron and Lean's kernels) passed, checked locally on a Linux
 machine (see [Verify](#verify)). No CI yet.*
 
-Lean 4 and Mathlib formalization of *BKT asymptotics for the quenched free energy of hierarchical pinning* by Igor Kortchemski (version of
-19 November 2026).
+Lean 4 and Mathlib formalization of
+[*BKT asymptotics for the quenched free energy of hierarchical pinning*](https://hexagonmath.org/2611.00654v1),
+credited to ChatGPT, directed by Igor Kortchemski (Hexagon preprint
+`2611.00654v1`, 19 November 2026).
+
 **All 24 numbered results of the paper within the declared scope are proved in
 Lean, with no axioms beyond `propext`, `Classical.choice` and `Quot.sound` and
 no `sorry` outside `Challenge.lean`.**
@@ -121,13 +124,13 @@ proofs were written. Every proof was then
 re-audited against the paper, read-only, by another model, of a different
 family from the proof's author in all but two cases (see the
 [report](FORMALIZATION_REPORT.md#how-the-formalization-was-produced)). The
-paper's author chose the scope. **Not claimed:** any human line-by-line review
+paper's director chose the scope. **Not claimed:** any human line-by-line review
 of the Lean statements or proofs.
 
 ## License and citation
 
-License: [Apache-2.0](LICENSE). It covers the Lean code and documentation, not
-the paper. Maintainer: Igor Kortchemski. Cite the
-paper for the mathematics and this repository for the formalization; citation
-metadata is in [`CITATION.cff`](CITATION.cff). Questions and corrections are
-welcome as issues.
+The Lean code and documentation are licensed under [Apache-2.0](LICENSE).
+The paper is available under CC BY 4.0. Maintainer: Igor Kortchemski.
+Cite the [Hexagon preprint](https://hexagonmath.org/2611.00654v1) for the
+mathematics and this repository for the formalization. Citation metadata is in
+[`CITATION.cff`](CITATION.cff). Questions and corrections are welcome as issues.

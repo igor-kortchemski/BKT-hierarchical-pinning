@@ -8,22 +8,24 @@ is a completion record for a paper-companion formalization, not a log of every
 Lean edit.
 
 - **Paper and version:** *BKT asymptotics for the quenched free energy of
-  hierarchical pinning* by Igor Kortchemski, version of 19 November 2026
-  (SHA-256 of its TeX file
-  `6d66491d1e04453306f33eccc523802059cdb314923593469f1b99ac96feafa4`). The
-  formalization was developed against the research draft of 18 November 2026
+  hierarchical pinning* (ChatGPT, directed by Igor Kortchemski).
+  [Hexagon preprint `2611.00654v1`](https://hexagonmath.org/2611.00654v1),
+  posted on 19 November 2026 under CC BY 4.0. The local TeX source has SHA-256
+  `5926452ad6d7d81307242a52d0996fdf9eac4b2df764bdb5bff4b434c4b3c8ab`,
+  matching the prefix displayed in the
+  [Hexagon source listing](https://hexagonmath.org/src/2611.00654v1/files).
+  The formalization was developed against the research draft of 18 November 2026
   (SHA-256 of its main TeX file
   `8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c`), then
   titled *BKT asymptotics for disordered pinning on the diamond hierarchical
-  lattice*; the differences between the two versions are listed under
+  lattice*. The pre-deposit comparison is described under
   [From the formalized draft to the final version](#from-the-formalized-draft-to-the-final-version).
   The paper has eight sections; results are cited below by section and by
   the paper's labels (such as `th:bkt`).
-- **Publication status of the paper:** not yet distributed (19 November 2026).
 - **Declared formalization scope:** the whole paper (Sections 1 to 8), with
   Theorem `th:bkt` and its dependencies first; the introduction's Gaussian
   example, resting on a cited strict-shift theorem, is out of scope (decision
-  of the paper's author, 18 November 2026).
+  of the paper's director, 18 November 2026).
 - **Lean/Mathlib versions:** Lean `v4.35.0`, Mathlib `v4.35.0`
   (`56a005855ea17e0b0958f73ec801ae140b0a1679`).
 
@@ -311,9 +313,11 @@ D1–D18.
 ## From the formalized draft to the final version
 
 The formalization was developed against the research draft of 18 November
-2026; this record cites the final version of 19 November 2026. The two were
-compared mechanically on all theorem-like environments (24 in each) and all
-labelled displays (92 in each):
+2026. That draft was compared mechanically with a pre-deposit revision of
+19 November 2026 (TeX SHA-256
+`6d66491d1e04453306f33eccc523802059cdb314923593469f1b99ac96feafa4`). The
+comparison covered all theorem-like environments (24 in each) and labelled
+displays (92 in each).
 
 - 20 of the 24 numbered results are unchanged, word for word.
 - `response:ballot`: the quantifiers "for some $b\ge0$ and $\eta,\delta>0$"
@@ -329,19 +333,18 @@ labelled displays (92 in each):
 - `escape:pairs`, with the displays `escape:first-pair-moment` and
   `escape:pair-tail`: the band moment $M_I$ is renamed $W$; same content.
 
-No statement of the final version goes beyond its Lean counterpart. The
+No statement of the compared revision goes beyond its Lean counterpart. The
 paper's prose and proofs also changed elsewhere (about 600 lines); the
 proof-correspondence column above was established against the draft of
 18 November 2026 and has not been re-reviewed against these changes.
 
 ## Verification and assumptions
 
-All checks below were run on 19 November 2026 on the development tree from
+The development checks below were run on 19 November 2026 on the tree from
 which this repository was exported. The export removed private working
-material and an unused draft library, and the documentation in the Lean files
-is revised for publication (prose only). **None of these checks has yet been
-repeated on this repository's published commit**; they must be before any
-claim about that commit.
+material and an unused draft library and revised the documentation in the
+Lean files. The Comparator entry below records the separate run on repository
+commit `eafa34c`.
 
 - **Build:** **passed** after the final proof cleanup:
   `lake build DiamondPinning Solution` (3,420 jobs), with Lean `v4.35.0` and
@@ -379,7 +382,7 @@ claim about that commit.
 - **Statement review:** before being fixed, each group was reviewed against
   the paper by models that did not write it: Claude Sonnet 5.5 for groups
   1–5, with GPT‑6.2 Sol also auditing group 1 and blind read-backs of
-  groups 1 and 3; GPT‑6.2 Astra for group 6. The author delegated the approval
+  groups 1 and 3; GPT‑6.2 Astra for group 6. Igor Kortchemski delegated approval
   of each group to a read-only consultation of GPT‑6.2 Astra, which
   recommended approval, in some cases after corrections that were applied
   before fixing. No human line-by-line review of the statements is claimed.
@@ -427,8 +430,8 @@ claim about that commit.
   project-local directory first on `PATH` was used; the sandbox and the
   configuration were unchanged. The same check had passed earlier at a
   development revision before the final proof cleanup.
-- **Full deposit verification (Palomar preflight):** **not run**; it needs
-  the public repository and its exact commit.
+- **Full deposit verification (Palomar preflight):** pending on the exact
+  repository commit selected for submission.
 
 Building and kernel checking show that the Lean statements are proved from the
 listed axioms; they do not show that the statements say what the paper says,
@@ -461,10 +464,10 @@ routes are recorded above rather than being treated as verification of
 bypassed arguments of the paper. The sandboxed Comparator ran on a Linux
 virtual machine.
 
-The paper's author decided the scope and was consulted on interface choices,
-for which the author delegated the decisions, including the approval of
-statements, to GPT‑6.2 Astra consultations. Publication, licensing, and
-submission to Palomar were not delegated.
+Igor Kortchemski decided the scope and was consulted on interface choices.
+He delegated those decisions, including statement approval, to GPT‑6.2 Astra
+consultations. Publication, licensing, and submission to Palomar were his
+responsibility.
 
 A different Lean proof can verify the result without verifying the written
 argument it bypasses. In particular, an alternative proof does not silently
@@ -477,7 +480,7 @@ correspond to recommended changes to the manuscript.
 
 All 24 numbered theorems, propositions, and lemmas are matched to proved
 declarations and have no outstanding proof obligation. The introduction's
-Gaussian example is excluded by the author's scope decision.
+Gaussian example is excluded by Igor Kortchemski's scope decision.
 
 Three routine Section 1 identities remain only partially matched under this
 report's strict declaration-level criterion:
@@ -507,6 +510,5 @@ changing any existing statement.
 2. **Independent re-audit of the cleanup pass:** the final cleanup of proof
    modules was checked mechanically (build, statement preservation, axioms,
    Comparator), not re-audited by a model.
-3. **Publication:** the license, the public repository, the full Palomar
-   preflight at its public commit and the submission are the author's
-   decisions and have not been carried out.
+3. **Palomar:** the [Lean repository](https://github.com/igor-kortchemski/BKT-hierarchical-pinning)
+   is public. The full preflight and submission to Palomar remain pending.

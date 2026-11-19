@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
 # formalization.yaml v0.4.
-# Values beginning with "AUTHOR-DECISION:" are not values: they mark a decision
-# of the author that must be made, and replaced, before submission.
 version: "v0.4"
 
 project:
   name: "BKT asymptotics for the quenched free energy of hierarchical pinning"
   description: >-
-    Lean 4 and Mathlib formalization of the whole paper "BKT asymptotics for the quenched free energy of hierarchical pinning" (version of
-    19 November 2026), except the Gaussian example of its introduction. For
+    Lean 4 and Mathlib formalization of the paper "BKT asymptotics for the
+    quenched free energy of hierarchical pinning" (Hexagon preprint
+    2611.00654v1), except the Gaussian example of its introduction. For
     B > 2, a disorder W > 0 with E W = 1 and a field h, the partition functions
     on the diamond hierarchical lattice satisfy R_0 = e^h W and
     R_{n+1} = (R_n R_n' + B - 1) / B with independent copies; the free energy
@@ -28,8 +27,8 @@ project:
     and the upper and lower free-energy bounds through a hard integer-valued
     recursion. Three routine identities of Section 1 are used but not exported
     as standalone declarations.
-  # The Lean proofs were produced by AI models (see automation); the paper's
-  # author is the person responsible for this formalization.
+  # The Lean proofs were produced by AI models (see automation). The paper's
+  # director is the person responsible for this formalization.
   authors:
     - "Igor Kortchemski"
   license: "Apache-2.0"
@@ -48,27 +47,29 @@ classification:
 sources:
   - title: "BKT asymptotics for the quenched free energy of hierarchical pinning"
     authors:
-      - "Igor Kortchemski"
-    id: "AUTHOR-DECISION: arXiv identifier of the paper (with version) once it is posted"
-    type: "article (version of 19 November 2026, not yet distributed)"
-    location: "AUTHOR-DECISION: stable URL of the paper once it is public"
+      - "ChatGPT"
+    contributors:
+      - name: "Igor Kortchemski"
+        role: "Research direction and Hexagon submission"
+    id: "hexagon:2611.00654v1"
+    type: "paper"
+    location: "https://hexagonmath.org/2611.00654v1"
     relationship: "formalizes"
     note: >-
-      The cited version is that of 19 November 2026 (SHA-256 of its TeX file
-      6d66491d1e04453306f33eccc523802059cdb314923593469f1b99ac96feafa4). The formalization was
-      developed against the research draft of 18 November 2026 (SHA-256 of
-      its main TeX file 8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c),
+      The Hexagon preprint was posted on 19 November 2026. The local TeX
+      source has SHA-256
+      5926452ad6d7d81307242a52d0996fdf9eac4b2df764bdb5bff4b434c4b3c8ab,
+      matching the prefix displayed by Hexagon. The formalization was
+      developed against the research draft of 18 November 2026 (SHA-256 of its
+      main TeX file 8db09790c116d6f75147c911aa40fb1bfc5defa1668dc762c4ec8aef68bff68c),
       then titled "BKT asymptotics for disordered pinning on the diamond
-      hierarchical lattice". Between the two versions, 20 of the 24 numbered
-      results are unchanged; the other four changed in wording, in notation,
-      or by incorporating the two corrections found by the formalization, and
-      each matches its Lean statement (FORMALIZATION_REPORT.md, "From the
-      formalized draft to the final version"). The
-      paper's author is the responsible maintainer of this formalization,
-      decided its scope, and delegated the approval of statements to AI
+      hierarchical lattice". A pre-deposit comparison found 20 of the 24
+      numbered results unchanged and records how the other four changed
+      (FORMALIZATION_REPORT.md, "From the formalized draft to the final
+      version"). Igor Kortchemski directed the paper, maintains the
+      formalization, set its scope, and delegated statement approval to AI
       consultations.
-    license: "AUTHOR-DECISION: license of the paper, if any, once it is posted"
-    author_endorsement: "participated"
+    license: "CC-BY-4.0"
 
 related_formalizations: []
 
@@ -82,13 +83,12 @@ status:
     strict-shift theorem. Partially covered: three routine identities of
     Section 1 (the recursion for X_n = log R_n / log B, the X_n-forms of the
     tilted moments, and two pole-scale identities), which appear only inside
-    proofs or in another normalization. Changed statements: the hard free
+    proofs or in another normalization. Statement conventions: the hard free
     energy F_d takes values in [0, infinity] (a real-valued version is proved
-    when the initial mean is finite); one display of the Mellin calculus of
-    Section 5 is proved on compact weight ranges only (it is false for
-    unbounded weights); the matrix-growth constant of lem:entire-bounds may
-    depend on the coefficient w, which is assumed measurable; several limsup
-    and liminf bounds are stated in eventual form and rates with Theta/O.
+    when the initial mean is finite). Several limsup and liminf bounds are
+    stated in eventual form and rates with Theta/O. The compact weight range
+    in Section 5 and the measurable coefficient and coefficient-dependent
+    constant in lem:entire-bounds agree with the Hexagon version (D4 and D5).
     Intermediate interfaces of Sections 5-8 take the residues l_3 and kappa as
     parameters with their defining limits; the main theorem discharges them.
   # Proof development, excluding the six deliberate sorry of Challenge.lean.
@@ -108,7 +108,9 @@ automation:
         - "GPT-6 Luna"
         - "GPT-6.2 Astra"
         - "Kimi K3.1 Pro"
-      framework: "Claude Code (orchestration and Claude workers); Codex CLI (GPT workers)"
+      framework: >-
+        Claude Code (orchestration and Claude workers), Codex CLI (GPT workers)
+        and Open Math OS (Kimi workers).
       tool_setup: >-
         Claude Code running Claude Opus 5.5 orchestrated the work: inventory of
         the paper's results and dependency graph, shared definitions and main
@@ -139,7 +141,7 @@ automation:
   spend_usd: "not tracked"
   notes: >-
     All Lean code (definitions, statements and proofs) was written by AI
-    models. The paper's author set the scope (whole paper, Gaussian example
+    models. The paper's director set the scope (whole paper, Gaussian example
     excluded), answered questions about the paper, and delegated the remaining
     decisions, including the approval of each group of statements, to
     read-only consultations of GPT-6.2 Astra, whose recommendations were
@@ -172,7 +174,10 @@ fidelity:
 review:
   status: "AI-audited; no human review of the Lean statements or proofs"
   reviewers:
-    - "none"
+    - "Claude Sonnet 5.5"
+    - "GPT-6.2 Astra"
+    - "GPT-6.2 Sol"
+    - "Kimi K3.1 Pro"
   notes: >-
     No human line-by-line review of the Lean statements or proofs is claimed.
     Automated reviews: each group of statements was reviewed against the paper
@@ -273,7 +278,7 @@ alignment:
       lean: "DiamondPinning.matrix_integral_growth_bound, DiamondPinning.rightHalfPlane_bounded_of_minimal_exponential_type, DiamondPinning.leftHalfPlane_bounded_of_minimal_exponential_type"
       module: "DiamondPinning.Statements.EntireBounds"
       status: "adapted"
-      note: "Corrected: measurable coefficient and a constant depending on it (D5); E2 through Mathlib's half-plane theorem (D6)."
+      note: "E1 matches the Hexagon version's measurable coefficient and coefficient-dependent constant (D5). E2 uses Mathlib's half-plane theorem (D6)."
     - source: "cont:freeenergyupper and escape:constant (Section 8)"
       lean: "DiamondPinning.freeEnergy_upper, DiamondPinning.escape_constant"
       module: "DiamondPinning.Statements.Escape"
