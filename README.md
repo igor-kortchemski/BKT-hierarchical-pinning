@@ -6,7 +6,7 @@ con-leche, con-ron and Lean's kernels) passed, checked locally on a Linux
 machine (see [Verify](#verify)). No CI yet.*
 
 Lean 4 and Mathlib formalization of *BKT asymptotics for the quenched free energy of hierarchical pinning* by Igor Kortchemski (version of
-19 November 2026, not yet publicly available; no arXiv identifier).
+19 November 2026).
 **All 24 numbered results of the paper within the declared scope are proved in
 Lean, with no axioms beyond `propext`, `Classical.choice` and `Quot.sound` and
 no `sorry` outside `Challenge.lean`.**
