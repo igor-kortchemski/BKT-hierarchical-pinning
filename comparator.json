@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "DiamondPinning.integrable_lawR",
+    "DiamondPinning.integrable_tiltedLogPower",
+    "DiamondPinning.integrable_log_lawR",
+    "DiamondPinning.freeEnergy_tendsto",
+    "DiamondPinning.criticalPoint_isGreatest",
+    "DiamondPinning.bkt"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}
