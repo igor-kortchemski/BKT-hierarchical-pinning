@@ -1,8 +1,9 @@
 # BKT asymptotics for disordered pinning on the diamond hierarchical lattice
 
-*Status, 19 November 2026: build, axiom check and sandboxed Comparator passed
-on the development tree from which this repository was exported (checked
-locally on 19 November 2026; see [Verify](#verify)). No CI yet.*
+*Status, 19 November 2026, at commit `eafa34c`: build, axiom check and
+sandboxed `lake comparator` (including `--paranoid`: NanoDa, Lean4Lean,
+con-leche, con-ron and Lean's kernels) passed, checked locally on a Linux
+machine (see [Verify](#verify)). No CI yet.*
 
 Lean 4 and Mathlib formalization of *BKT asymptotics for disordered pinning on
 the diamond hierarchical lattice* by Igor Kortchemski (research draft of

@@ -383,20 +383,20 @@ claim about that commit.
   it was checked by the build, statement-preservation and axiom checks above,
   not re-audited.
 - **Comparator:** **passed**, 19 November 2026, on a Linux virtual machine,
-  at a development revision preceding the final proof cleanup (which changed
-  neither the statements nor `Challenge.lean`, `Solution.lean` or
-  `comparator.json`). The sandboxed `lake comparator` exited 0 and reported
-  that both the NanoDa and Lean default kernels accepted the solution ("Your
-  solution is okay!") for the six theorems of `comparator.json`. Versions:
-  Lean 4.35.0, Lake 5.0.0, NanoDa 0.4.19, `bwrap` 0.11.1. Because the
-  toolchain directory was reached through a symbolic link, which the
-  sandbox's bind of `nanoda_bin` did not follow, a byte-identical copy of
-  `nanoda_bin` in a project-local directory first on `PATH` was used; the
-  sandbox and configuration were unchanged.
-- **Comparator `--paranoid`:** **unfinished**. Lean4Lean accepted 60,601
-  declarations and NanoDa accepted; con-leche was still running when the run
-  was stopped by a resource limit. This optional run does not change the
-  ordinary Comparator result above.
+  at commit `eafa34c` of this repository (its content, file by file). The
+  sandboxed `lake comparator` exited 0 for the six theorems of
+  `comparator.json`: the statement comparison and the axiom check passed,
+  and both the NanoDa and Lean default kernels accepted the solution ("Your
+  solution is okay!"). `lake comparator --paranoid` also exited 0: NanoDa
+  (configured and bundled), Lean's paranoid kernel, Lean4Lean, con-leche,
+  con-ron and Lean's default kernel all accepted. Versions: Lean 4.35.0,
+  Lake 5.0.0, NanoDa 0.4.19, `bwrap` 0.11.1. Because the toolchain directory
+  was reached through a symbolic link, which the sandbox's bind of
+  `nanoda_bin` did not follow, a byte-identical copy of `nanoda_bin` (SHA-256
+  `cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5`) in a
+  project-local directory first on `PATH` was used; the sandbox and the
+  configuration were unchanged. The same check had passed earlier at a
+  development revision before the final proof cleanup.
 - **Full deposit verification (Palomar preflight):** **not run**; it needs
   the public repository and its exact commit.
 
@@ -470,11 +470,13 @@ changing any existing statement.
 
 ### Release and verification obligations
 
-1. **Checks on the published commit:** repeat the build, the axiom check of
-   the 72 statement theorems, the statement comparison and the sandboxed
-   `lake comparator` on this repository's published commit.
-2. **Optional Comparator audit:** finish `--paranoid` if desired; con-leche is
-   the unfinished component. The ordinary sandboxed Comparator has passed.
+1. **Checks on the published commit:** the build, the axiom check and the
+   sandboxed `lake comparator` (with `--paranoid`) passed at `eafa34c`; a
+   later commit that changes Lean code needs them again, and the Palomar
+   full preflight checks the commit submitted.
+2. **Independent re-audit of the cleanup pass:** the final cleanup of proof
+   modules was checked mechanically (build, statement preservation, axioms,
+   Comparator), not re-audited by a model.
 3. **Publication:** the license, the public repository, the full Palomar
    preflight at its public commit and the submission are the author's
    decisions and have not been carried out.
