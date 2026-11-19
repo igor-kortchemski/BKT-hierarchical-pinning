@@ -19,8 +19,7 @@ Lean edit.
   [From the formalized draft to the final version](#from-the-formalized-draft-to-the-final-version).
   The paper has eight sections; results are cited below by section and by
   the paper's labels (such as `th:bkt`).
-- **Publication status of the paper:** not yet distributed (19 November 2026);
-  no arXiv identifier.
+- **Publication status of the paper:** not yet distributed (19 November 2026).
 - **Declared formalization scope:** the whole paper (Sections 1 to 8), with
   Theorem `th:bkt` and its dependencies first; the introduction's Gaussian
   example, resting on a cited strict-shift theorem, is out of scope (decision
